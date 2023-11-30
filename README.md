@@ -9,3 +9,7 @@
 ### Bases de datos - Diagrama ER - (Con vistas)
 ![flysky_database_vistas](https://github.com/victorManuelMarquez/flysky/assets/107000454/a32520a4-44f4-4ff0-9337-96c25012cfdd)
 
+### BBDD
+[Código SQL - BD Poblada](https://drive.google.com/file/d/164iZbl9Dijr0TTQIAoPyFH_FVPjvYBVE/view?usp=drive_link)
+
+[Código SQL - BD Solo estructura](https://drive.google.com/file/d/1TnV50BqIrD2nRI_ktffLB2vn6zn33WFR/view?usp=drive_link)
