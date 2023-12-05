@@ -10,6 +10,7 @@ import lombok.Setter;
 @Table(name = "pasajeros")
 public class Pasajero {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

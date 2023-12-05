@@ -4,7 +4,6 @@ package ar.com.codoacodo.flysky.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 @Getter
 @Setter
 @Entity
@@ -24,6 +23,5 @@ public class Asiento {
 
     @Column(name = "cantidad", nullable = false)
     private Integer cantidad;
-
 
 }

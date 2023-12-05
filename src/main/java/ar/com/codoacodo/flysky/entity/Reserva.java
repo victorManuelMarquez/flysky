@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
-
 @Getter
 @Setter
 @Entity
@@ -15,17 +14,17 @@ public class Reserva {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false)
+    @JoinColumn(name = "idUsuario", nullable = false)
     private Usuario usuario;
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "id_vuelo", nullable = false)
+    @JoinColumn(name = "idVuelo", nullable = false)
     private Vuelo vuelo;
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "id_pasajero", nullable = false)
+    @JoinColumn(name = "idPasajero", nullable = false)
     private Pasajero pasajero;
 
     @Column(name = "fechaReserva", nullable = false)
@@ -36,6 +35,5 @@ public class Reserva {
 
     @Column(name = "cancelada", nullable = false)
     private boolean cancelada;
-
 
 }

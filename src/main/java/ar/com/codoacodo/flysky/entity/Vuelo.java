@@ -5,11 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
-
 @Getter
 @Setter
-
-
 @Entity
 @Table(name = "vuelos")
 public class Vuelo {
@@ -19,7 +16,7 @@ public class Vuelo {
  private Long id;
 
  @ManyToOne
- @JoinColumn(name = "id_aerolinea", nullable = false)
+ @JoinColumn(name = "idAerolinea", nullable = false)
  private Aerolinea aerolinea;
 
  @Column(name = "salida", nullable = false)
@@ -29,12 +26,11 @@ public class Vuelo {
  private Date llegada;
 
  @ManyToOne
- @JoinColumn(name = "id_origen", nullable = false)
+ @JoinColumn(name = "idOrigen", nullable = false)
  private Aeropuerto origen;
 
  @ManyToOne
- @JoinColumn(name = "id_destino", nullable = false)
+ @JoinColumn(name = "idDestino", nullable = false)
  private Aeropuerto destino;
-
 
 }
