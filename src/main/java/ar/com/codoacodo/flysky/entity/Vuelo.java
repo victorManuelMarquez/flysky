@@ -1,26 +1,30 @@
 package ar.com.codoacodo.flysky.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 @Table(name = "vuelos")
 public class Vuelo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String aerolinea;
-    private Long precio;
+
+    @ManyToOne
+    @JoinColumn(name = "id_aerolinea", foreignKey = @ForeignKey(name = "fk_vuelos_aerolinea"))
+    private Aerolinea aerolinea;
     private Date salida;
-    private String origen;
     private Date llegada;
-    private String destino;
+
+    @ManyToOne
+    @JoinColumn(name = "id_origen", foreignKey = @ForeignKey(name = "fk_vuelos_origen"))
+    private Aeropuerto origen;
+
+    @ManyToOne
+    @JoinColumn(name = "id_destino", foreignKey = @ForeignKey(name = "fk_vuelos_destino"))
+    private Aeropuerto destino;
 }

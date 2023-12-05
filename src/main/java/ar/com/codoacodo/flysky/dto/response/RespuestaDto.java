@@ -1,12 +1,9 @@
 package ar.com.codoacodo.flysky.dto.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
+@AllArgsConstructor
 public class RespuestaDto {
 
     String mensaje;

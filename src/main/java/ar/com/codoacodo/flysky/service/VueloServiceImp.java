@@ -5,6 +5,7 @@ import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
 import ar.com.codoacodo.flysky.entity.Vuelo;
 import ar.com.codoacodo.flysky.repository.IVueloRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,9 +24,9 @@ public class VueloServiceImp implements IVueloService {
         ObjectMapper mapper = new ObjectMapper();
         Vuelo vuelo = mapper.convertValue(vueloDto, Vuelo.class);
 
-        repository.save(vuelo);
+        vuelo = repository.save(vuelo);
 
-        if(vuelo == null){
+        if(vuelo.getId() == null){
             return new RespuestaDto("No sea ha podido reservar el vuelo, por favor vuelva a intentarlo");
         }
 
@@ -33,7 +34,23 @@ public class VueloServiceImp implements IVueloService {
     }
 
     @Override
-    public List<VueloDto> listaVuelo() {
+    public List<VueloDto> listaVuelos() {
+        ObjectMapper mapper = new ObjectMapper();
+        return repository.findAll().stream().map(vuelo -> mapper.convertValue(vuelo, VueloDto.class)).toList();
+    }
+
+    @Override
+    public VueloDto buscarVueloPorId(Long id) {
+        return null;
+    }
+
+    @Override
+    public RespuestaDto actualizarVueloPorId(Long id) {
+        return null;
+    }
+
+    @Override
+    public RespuestaDto borrarVueloPorId(Long id) {
         return null;
     }
 }

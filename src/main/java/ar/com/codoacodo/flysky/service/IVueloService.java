@@ -10,6 +10,11 @@ public interface IVueloService {
 
     RespuestaDto guardarVuelo(VueloDto vueloDto);
 
-    List<VueloDto> listaVuelo();
+    List<VueloDto> listaVuelos();
 
+    VueloDto buscarVueloPorId(Long id);
+
+    RespuestaDto actualizarVueloPorId(Long id);
+
+    RespuestaDto borrarVueloPorId(Long id);
 }

@@ -1,4 +1,4 @@
 package ar.com.codoacodo.flysky.service;
 
-public interface IPersonaService {
+public interface IPasajeroService {
 }

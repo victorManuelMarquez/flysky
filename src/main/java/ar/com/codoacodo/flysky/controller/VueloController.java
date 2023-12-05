@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/vuelos")
 public class VueloController {
 
     private IVueloService service;
@@ -17,13 +17,28 @@ public class VueloController {
         this.service = service;
     }
 
-    @PostMapping("/reservar")
-    public ResponseEntity<?> reservarVuelo(@RequestBody VueloDto vueloDto){
+    @PostMapping()
+    public ResponseEntity<?> guardarVuelo(@RequestBody VueloDto vueloDto){
         return new ResponseEntity<>(service.guardarVuelo(vueloDto), HttpStatus.OK);
     }
 
-    @GetMapping("/vuelos-disponibles")
-    public ResponseEntity<?> vuelosDisponibles(){
-        return null;
+    @GetMapping()
+    public ResponseEntity<?> listaVuelos(){
+        return new ResponseEntity<>(service.listaVuelos(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> consultarVueloPorId(@PathVariable Long id){
+        return new ResponseEntity<>(service.buscarVueloPorId(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> actualizarVueloPorId(@PathVariable Long id){
+        return  new ResponseEntity<>(service.actualizarVueloPorId(id), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> borrarVueloPorId(@PathVariable Long id){
+        return  new ResponseEntity<>(service.borrarVueloPorId(id), HttpStatus.OK);
     }
 }
