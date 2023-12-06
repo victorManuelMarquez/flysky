@@ -52,16 +52,16 @@ INSERT INTO clases (nombre) VALUES
 
 -- Insertar más datos para Pasajeros
 INSERT INTO pasajeros (dni, nombres, apellidos, telefono, email) VALUES
-    ('11111111A', 'Juan', 'Gómez', '123456789', 'juan.gomez@example.com'),
-    ('22222222B', 'Ana', 'Martínez', '987654321', 'ana.martinez@example.com'),
-    ('33333333C', 'Carlos', 'Rodríguez', '555555555', 'carlos.rodriguez@example.com'),
-    ('44444444D', 'Laura', 'Hernández', '777777777', 'laura.hernandez@example.com'),
-    ('55555555E', 'Diego', 'López', '111111111', 'diego.lopez@example.com'),
-    ('66666666F', 'Valeria', 'González', '999999999', 'valeria.gonzalez@example.com'),
-    ('77777777G', 'Javier', 'Ramírez', '444444444', 'javier.ramirez@example.com'),
-    ('88888888H', 'Camila', 'Pérez', '333333333', 'camila.perez@example.com'),
-    ('99999999I', 'Mateo', 'Díaz', '666666666', 'mateo.diaz@example.com'),
-    ('10101010J', 'Isabella', 'Fernández', '888888888', 'isabella.fernandez@example.com');
+    ('11111111', 'Juan', 'Gómez', '123456789', 'juan.gomez@example.com'),
+    ('22222222', 'Ana', 'Martínez', '987654321', 'ana.martinez@example.com'),
+    ('33333333', 'Carlos', 'Rodríguez', '555555555', 'carlos.rodriguez@example.com'),
+    ('44444444', 'Laura', 'Hernández', '777777777', 'laura.hernandez@example.com'),
+    ('55555555', 'Diego', 'López', '111111111', 'diego.lopez@example.com'),
+    ('66666666', 'Valeria', 'González', '999999999', 'valeria.gonzalez@example.com'),
+    ('77777777', 'Javier', 'Ramírez', '444444444', 'javier.ramirez@example.com'),
+    ('88888888', 'Camila', 'Pérez', '333333333', 'camila.perez@example.com'),
+    ('99999999', 'Mateo', 'Díaz', '666666666', 'mateo.diaz@example.com'),
+    ('10101010', 'Isabella', 'Fernández', '888888888', 'isabella.fernandez@example.com');
 
 -- Insertar más datos para Usuarios
 INSERT INTO usuarios (email, clave) VALUES
