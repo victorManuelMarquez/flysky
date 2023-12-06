@@ -10,6 +10,7 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "reservas")
+@IdClass(ReservaId.class)
 public class Reserva {
 
     @Id
