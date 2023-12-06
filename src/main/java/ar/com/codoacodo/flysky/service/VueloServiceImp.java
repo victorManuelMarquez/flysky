@@ -5,7 +5,6 @@ import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
 import ar.com.codoacodo.flysky.entity.Vuelo;
 import ar.com.codoacodo.flysky.repository.IVueloRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -51,6 +50,17 @@ public class VueloServiceImp implements IVueloService {
 
     @Override
     public RespuestaDto borrarVueloPorId(Long id) {
-        return null;
+
+        //Para borrar el vuelo hay que asegurarse que no este asignado a ninguna reserva
+        //hacer un try catch con exception
+
+        //Si existe lo borro
+        //if(respositry.existsById(id)){
+            repository.deleteById(id);
+            return new RespuestaDto("Vuelo borrado");
+        //}
+
+
+
     }
 }

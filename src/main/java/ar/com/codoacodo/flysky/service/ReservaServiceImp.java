@@ -51,7 +51,13 @@ public class ReservaServiceImp implements IReservaService {
 
     @Override
     public RespuestaDto borrarReservaPorId(Long id) {
-        return null; // Implementar lógica para borrar una reserva por ID
+        //hacer un try catch con exception
+
+        //Si existe lo borro
+        //if(respositry.existsById(id)){
+        repository.deleteById(id);
+        return new RespuestaDto("VReserva borrada");
+        //}
     }
 }
 
