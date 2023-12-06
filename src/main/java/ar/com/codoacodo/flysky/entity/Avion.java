@@ -1,6 +1,7 @@
 package ar.com.codoacodo.flysky.entity;
 
 import jakarta.persistence.*;
+
 import lombok.Data;
 
 @Entity
@@ -13,4 +14,5 @@ public class Avion {
     private Long id;
     private String modelo;
     private int totalAsientos;
+
 }

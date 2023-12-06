@@ -32,4 +32,5 @@ public class Reserva {
     private String comprobante;
 
     private byte cancelada;
+
 }

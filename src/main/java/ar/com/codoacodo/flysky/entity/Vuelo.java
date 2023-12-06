@@ -27,4 +27,5 @@ public class Vuelo {
     @ManyToOne
     @JoinColumn(name = "id_destino", foreignKey = @ForeignKey(name = "fk_vuelos_destino"))
     private Aeropuerto destino;
+
 }

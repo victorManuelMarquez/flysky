@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Entity
 @Data
+
 @Table(name = "usuarios")
 public class Usuario {
 
@@ -14,4 +15,5 @@ public class Usuario {
 
     private String email;
     private String clave;
+
 }

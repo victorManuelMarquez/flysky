@@ -1,10 +1,12 @@
 package ar.com.codoacodo.flysky.entity;
 
 import jakarta.persistence.*;
+
 import lombok.Data;
 
 @Entity
 @Data
+
 @Table(name = "clases_por_aviones")
 public class ClasesPorAviones {
 
