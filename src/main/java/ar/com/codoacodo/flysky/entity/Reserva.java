@@ -1,44 +1,5 @@
 package ar.com.codoacodo.flysky.entity;
 
-<<<<<<< HEAD
-
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-
-import java.util.Date;
-@Getter
-@Setter
-@Entity
-@Table(name = "reservas")
-@IdClass(ReservaId.class)
-public class Reserva {
-
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "idUsuario", nullable = false)
-    private Usuario usuario;
-
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "idVuelo", nullable = false)
-    private Vuelo vuelo;
-
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "idPasajero", nullable = false)
-    private Pasajero pasajero;
-
-    @Column(name = "fechaReserva", nullable = false)
-    private Date fechaReserva;
-
-    @Column(name = "comprobante", nullable = false)
-    private String comprobante;
-
-    @Column(name = "cancelada", nullable = false)
-    private boolean cancelada;
-
-=======
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -71,5 +32,5 @@ public class Reserva {
     private String comprobante;
 
     private byte cancelada;
->>>>>>> ee6658fe82dccc5cd3b2d6b7be61ca9d68e004a4
+
 }
