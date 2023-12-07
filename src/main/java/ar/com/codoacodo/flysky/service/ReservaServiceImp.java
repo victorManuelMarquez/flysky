@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +29,8 @@ public class ReservaServiceImp implements IReservaService {
     public RespuestaDto guardarReserva(ReservaDto reservaDto) {
         ObjectMapper mapper = new ObjectMapper();
         Reserva reserva = mapper.convertValue(reservaDto, Reserva.class);
+
+        reserva.setFechaReserva(new Date());
 
         reserva = repository.save(reserva);
 

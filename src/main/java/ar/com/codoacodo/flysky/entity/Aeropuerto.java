@@ -2,13 +2,9 @@ package ar.com.codoacodo.flysky.entity;
 
 import jakarta.persistence.*;
 
-import lombok.Getter;
-import lombok.Setter;
-@Getter
-@Setter
+import lombok.Data;
 @Entity
-
-
+@Data
 @Table(name = "aeropuertos")
 public class Aeropuerto {
 
