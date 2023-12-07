@@ -1,6 +1,7 @@
 package ar.com.codoacodo.flysky.controller;
 
 import ar.com.codoacodo.flysky.dto.VueloDto;
+import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
 import ar.com.codoacodo.flysky.service.IVueloService;
 import ar.com.codoacodo.flysky.service.VueloServiceImp;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,14 @@ public class VueloController {
         return new ResponseEntity<>(service.guardarVuelo(vueloDto), HttpStatus.OK);
     }
 
+
+    //Comprar Boleto es lo mismo que guardar vuelo pero es otra forma de representar
+    @PostMapping
+    public ResponseEntity<?> comprarBoleto(@RequestBody VueloDto vueloDto) {
+        RespuestaDto respuesta = service.guardarVuelo(vueloDto);
+        return new ResponseEntity<>(respuesta, HttpStatus.OK);
+    }
+
     @GetMapping()
     public ResponseEntity<?> listaVuelos(){
         return new ResponseEntity<>(service.listaVuelos(), HttpStatus.OK);
@@ -37,8 +46,8 @@ public class VueloController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> actualizarVueloPorId(@PathVariable Long id){
-        return  new ResponseEntity<>(service.actualizarVueloPorId(id), HttpStatus.OK);
+    public ResponseEntity<?> actualizarVueloPorId(@PathVariable Long id, @RequestBody VueloDto vueloDto){
+        return  new ResponseEntity<>(service.actualizarVueloPorId(id,vueloDto), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

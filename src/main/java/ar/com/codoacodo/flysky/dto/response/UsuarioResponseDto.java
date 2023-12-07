@@ -8,10 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class UsuarioResponseDto {
+
     private Long id;
-    private String nombre;
-    private String apellido;
-    private String correoElectronico;
-    private String contraseña;
+    private String email;
+    private String clave;
 
 }
