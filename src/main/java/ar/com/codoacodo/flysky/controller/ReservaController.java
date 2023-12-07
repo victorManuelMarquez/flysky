@@ -32,8 +32,8 @@ public class ReservaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> actualizarReservaPorId(@PathVariable Long id) {
-        return new ResponseEntity<>(service.actualizarReservaPorId(id), HttpStatus.OK);
+    public ResponseEntity<?> actualizarReservaPorId(@PathVariable Long id,@RequestBody ReservaDto reservaDto) {
+        return new ResponseEntity<>(service.actualizarReservaPorId(id,reservaDto), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

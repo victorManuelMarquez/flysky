@@ -3,12 +3,17 @@ package ar.com.codoacodo.flysky.service;
 
 import ar.com.codoacodo.flysky.dto.ReservaDto;
 import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
+import ar.com.codoacodo.flysky.entity.Pasajero;
 import ar.com.codoacodo.flysky.entity.Reserva;
+import ar.com.codoacodo.flysky.entity.Usuario;
+import ar.com.codoacodo.flysky.entity.Vuelo;
 import ar.com.codoacodo.flysky.repository.IReservaRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReservaServiceImp implements IReservaService {
@@ -41,12 +46,49 @@ public class ReservaServiceImp implements IReservaService {
 
     @Override
     public ReservaDto buscarReservaPorId(Long id) {
-        return null; // Implementar lógica para buscar una reserva por ID
+   // Implementar lógica para buscar una reserva por ID
+        ModelMapper mapper = new ModelMapper();
+
+        Optional<Reserva> reservaOptional = repository.findById(id);
+
+        return reservaOptional.map(reserva -> mapper.map(reserva, ReservaDto.class)).orElse(null);
+
     }
 
     @Override
-    public RespuestaDto actualizarReservaPorId(Long id) {
-        return null; // Implementar lógica para actualizar una reserva por ID
+    public RespuestaDto actualizarReservaPorId(Long id,ReservaDto reservaDto) {
+          Optional<Reserva> reservaOptional = repository.findById(id);
+
+            if (reservaOptional.isPresent()) {
+                Reserva rnew = reservaOptional.get();
+                ModelMapper modelMapper = new ModelMapper();
+
+                // Verifica si el UsuarioDto no es nulo antes de mapear
+                if (reservaDto.getUsuario() != null) {
+                    rnew.setUsuario(modelMapper.map(reservaDto.getUsuario(), Usuario.class));
+                }
+
+                // Verifica si el VueloDto no es nulo antes de mapear
+                if (reservaDto.getVuelo() != null) {
+                    rnew.setVuelo(modelMapper.map(reservaDto.getVuelo(), Vuelo.class));
+                }
+
+                // Verifica si el PasajeroDto no es nulo antes de mapear
+                if (reservaDto.getPasajero() != null) {
+                    rnew.setPasajero(modelMapper.map(reservaDto.getPasajero(), Pasajero.class));
+                }
+
+                rnew.setFechaReserva(reservaDto.getFechaReserva());
+                rnew.setComprobante(reservaDto.getComprobante());
+                rnew.setCancelada(reservaDto.getCancelada());
+
+                repository.save(rnew);
+                return new RespuestaDto("Reserva actualizada correctamente");
+            } else {
+                return new RespuestaDto("No se encontró una reserva con el ID proporcionado");
+            }
+
+
     }
 
     @Override

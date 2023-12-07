@@ -11,7 +11,7 @@ public interface IReservaService {
 
     ReservaDto buscarReservaPorId(Long id);
 
-    RespuestaDto actualizarReservaPorId(Long id);
+    RespuestaDto actualizarReservaPorId(Long id,ReservaDto reservaDto);
 
     RespuestaDto borrarReservaPorId(Long id);
 }

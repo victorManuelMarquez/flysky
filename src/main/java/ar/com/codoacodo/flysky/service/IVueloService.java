@@ -14,7 +14,7 @@ public interface IVueloService {
 
     VueloDto buscarVueloPorId(Long id);
 
-    RespuestaDto actualizarVueloPorId(Long id);
+    RespuestaDto actualizarVueloPorId(Long id, VueloDto vueloDto);
 
     RespuestaDto borrarVueloPorId(Long id);
 }
