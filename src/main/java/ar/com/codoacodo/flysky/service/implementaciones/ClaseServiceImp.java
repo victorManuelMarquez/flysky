@@ -59,7 +59,6 @@ public class ClaseServiceImp implements IClaseService {
 
             if (claseOptional.isPresent()) {
                 Clase cnew = claseOptional.get();
-                ModelMapper modelMapper = new ModelMapper();
 
                 cnew.setNombre(claseDto.getNombre());
 
