@@ -1,13 +1,9 @@
 package ar.com.codoacodo.flysky.service.implementaciones;
 
-import ar.com.codoacodo.flysky.dto.AerolineaDto;
 import ar.com.codoacodo.flysky.dto.PasajeroDto;
 import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
-import ar.com.codoacodo.flysky.entity.Aerolinea;
 import ar.com.codoacodo.flysky.entity.Pasajero;
-import ar.com.codoacodo.flysky.repository.IAerolineaRepository;
 import ar.com.codoacodo.flysky.repository.IPasajeroRepository;
-import ar.com.codoacodo.flysky.service.interfaces.IAerolineaService;
 import ar.com.codoacodo.flysky.service.interfaces.IPasajeroService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
