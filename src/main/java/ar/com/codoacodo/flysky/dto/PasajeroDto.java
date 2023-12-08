@@ -8,8 +8,11 @@ import lombok.Data;
 public class PasajeroDto {
 
     private Long id;
+    private String dni;
     private String nombres;
     private String apellidos;
-    private String dni;
+    private int telefono;
+    private String email;
+
 
 }
