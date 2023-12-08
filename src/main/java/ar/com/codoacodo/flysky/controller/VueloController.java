@@ -1,7 +1,6 @@
 package ar.com.codoacodo.flysky.controller;
 
 import ar.com.codoacodo.flysky.dto.VueloDto;
-import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
 import ar.com.codoacodo.flysky.service.IVueloService;
 import ar.com.codoacodo.flysky.service.VueloServiceImp;
 import org.springframework.http.HttpStatus;
@@ -29,11 +28,11 @@ public class VueloController {
 
 
     //Comprar Boleto es lo mismo que guardar vuelo pero es otra forma de representar
-    @PostMapping
+    /*@PostMapping
     public ResponseEntity<?> comprarBoleto(@RequestBody VueloDto vueloDto) {
         RespuestaDto respuesta = service.guardarVuelo(vueloDto);
         return new ResponseEntity<>(respuesta, HttpStatus.OK);
-    }
+    }*/
 
     @GetMapping()
     public ResponseEntity<?> listaVuelos(){

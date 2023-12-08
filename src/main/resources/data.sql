@@ -141,3 +141,17 @@ INSERT INTO clases_por_aviones (id_avion, id_asiento) VALUES
     (2, 2),
     (3, 3),
     (4, 4);
+    -- Insertar más datos para Pagos
+
+    INSERT INTO pagos (id_reserva, tipo_pago, fecha_pago) VALUES
+        (1, 'Tarjeta de Crédito', '2023-01-07 15:30:00'),
+        (2, 'Transferencia Bancaria', '2023-01-08 17:45:00'),
+        (3, 'Tarjeta de Débito', '2023-01-09 19:20:00'),
+        (4, 'Tarjeta de Crédito', '2023-01-10 23:05:00'),
+        (5, 'Transferencia Bancaria', '2023-01-11 21:15:00'),
+        (6, 'Tarjeta de Débito', '2023-01-12 13:40:00'),
+        (7, 'Tarjeta de Crédito', '2023-01-13 11:55:00'),
+        (8, 'Transferencia Bancaria', '2023-01-14 09:10:00'),
+        (9, 'Tarjeta de Débito', '2023-01-15 07:25:00');
+
+
