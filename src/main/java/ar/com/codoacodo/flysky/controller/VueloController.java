@@ -28,12 +28,12 @@ public class VueloController {
     }
 
 
-    //Comprar Boleto es lo mismo que guardar vuelo pero es otra forma de representar
-    @PostMapping("/comprar")
-    public ResponseEntity<?> comprarBoleto(@RequestBody VueloDto vueloDto) {
-        RespuestaDto respuesta = service.guardarVuelo(vueloDto);
-        return new ResponseEntity<>(respuesta, HttpStatus.OK);
-    }
+//    //Comprar Boleto es lo mismo que guardar vuelo pero es otra forma de representar
+//    @PostMapping("/comprar")
+//    public ResponseEntity<?> comprarBoleto(@RequestBody VueloDto vueloDto) {
+//        RespuestaDto respuesta = service.guardarVuelo(vueloDto);
+//        return new ResponseEntity<>(respuesta, HttpStatus.OK);
+//    }
 
     @GetMapping()
     public ResponseEntity<?> listaVuelos(){
