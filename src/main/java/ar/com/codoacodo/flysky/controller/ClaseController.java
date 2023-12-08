@@ -1,7 +1,9 @@
 package ar.com.codoacodo.flysky.controller;
 
 import ar.com.codoacodo.flysky.dto.ClaseDto;
+import ar.com.codoacodo.flysky.service.ClaseServiceImp;
 import ar.com.codoacodo.flysky.service.IClaseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +13,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/clases")
 public class ClaseController {
-
+@Autowired
     private IClaseService claseService;
 
-    public ClaseController(IClaseService claseService) {
+    public ClaseController(ClaseServiceImp claseService) {
         this.claseService = claseService;
     }
 
@@ -24,7 +26,7 @@ public class ClaseController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<ClaseDto>> listaClases() {
+    public ResponseEntity<?> listaClases() {
         List<ClaseDto> clases = claseService.listaClases();
         return new ResponseEntity<>(clases, HttpStatus.OK);
     }

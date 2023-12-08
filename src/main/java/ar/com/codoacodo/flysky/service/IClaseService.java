@@ -1,7 +1,6 @@
 package ar.com.codoacodo.flysky.service;
 
 import ar.com.codoacodo.flysky.dto.ClaseDto;
-import ar.com.codoacodo.flysky.dto.ClaseaDto;
 import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,7 @@ public interface IClaseService {
 
     List<ClaseDto> listaClases();
 
-    ClaseaDto buscarClasePorId(Long id);
+    ClaseDto buscarClasePorId(Long id);
 
     ClaseDto actualizarClasePorId(Long id, ClaseDto claseDto);;
 

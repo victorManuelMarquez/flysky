@@ -14,18 +14,14 @@ public class Asiento {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "id_clase")
-    private Long id_clase;
 
-    @Column(name = "precio")
     private Float precio;
 
-    @Column(name = "cantidad")
     private Integer cantidad;
 
     @ManyToOne
-    @JoinColumn(name = "id_clase", insertable = false, updatable = false)
-    private Clase clase;
+    @JoinColumn(name = "id_clase", foreignKey = @ForeignKey(name = "fk_asientos_clase"))
+     private Clase clase;
 /*
     @ManyToOne
     @JoinColumn(name = "id_clase", foreignKey = @ForeignKey(name = "fk_asientos_clase"))
