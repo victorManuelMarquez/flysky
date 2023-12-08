@@ -10,4 +10,5 @@ public class FlyskyApplication {
 		SpringApplication.run(FlyskyApplication.class, args);
 	}
 
+
 }

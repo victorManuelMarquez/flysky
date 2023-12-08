@@ -26,9 +26,7 @@ public class VueloServiceImp implements IVueloService {
     public RespuestaDto guardarVuelo(VueloDto vueloDto) {
         ObjectMapper mapper = new ObjectMapper();
         Vuelo vuelo = mapper.convertValue(vueloDto, Vuelo.class);
-
         vuelo = repository.save(vuelo);
-
         if(vuelo.getId() == null){
             return new RespuestaDto("No sea ha podido reservar el vuelo, por favor vuelva a intentarlo");
         }

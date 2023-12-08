@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PagoServiceImp {
+public class PagoServiceImp implements IPagoService {
 
     private IPagoRepository repository;
 
