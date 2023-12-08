@@ -1,6 +1,6 @@
 package ar.com.codoacodo.flysky.service;
 
-import ar.com.codoacodo.flysky.execption.ClaseNotFoundException;
+import ar.com.codoacodo.flysky.exception.ClaseNotFoundException;
 import ar.com.codoacodo.flysky.mapper.ClasesMapper;
 import ar.com.codoacodo.flysky.model.dto.DtoClase;
 import ar.com.codoacodo.flysky.model.entity.ClaseEntity;

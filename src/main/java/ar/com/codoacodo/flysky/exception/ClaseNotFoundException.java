@@ -1,4 +1,4 @@
-package ar.com.codoacodo.flysky.execption;
+package ar.com.codoacodo.flysky.exception;
 
 public class ClaseNotFoundException extends RuntimeException {
 

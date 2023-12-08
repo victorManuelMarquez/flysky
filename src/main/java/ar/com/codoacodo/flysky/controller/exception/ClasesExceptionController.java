@@ -1,6 +1,6 @@
 package ar.com.codoacodo.flysky.controller.exception;
 
-import ar.com.codoacodo.flysky.execption.ClaseNotFoundException;
+import ar.com.codoacodo.flysky.exception.ClaseNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
