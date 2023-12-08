@@ -1,7 +1,6 @@
 package ar.com.codoacodo.flysky.controller;
 
 import ar.com.codoacodo.flysky.dto.VueloDto;
-import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
 import ar.com.codoacodo.flysky.service.interfaces.IVueloService;
 import ar.com.codoacodo.flysky.service.implementaciones.VueloServiceImp;
 import org.springframework.http.HttpStatus;
