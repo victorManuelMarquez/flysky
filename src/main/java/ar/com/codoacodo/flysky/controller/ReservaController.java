@@ -1,8 +1,8 @@
 package ar.com.codoacodo.flysky.controller;
 
 import ar.com.codoacodo.flysky.dto.ReservaDto;
-import ar.com.codoacodo.flysky.service.IReservaService;
-import ar.com.codoacodo.flysky.service.ReservaServiceImp;
+import ar.com.codoacodo.flysky.service.interfaces.IReservaService;
+import ar.com.codoacodo.flysky.service.implementaciones.ReservaServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

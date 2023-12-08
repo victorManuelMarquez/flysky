@@ -1,4 +1,4 @@
-package ar.com.codoacodo.flysky.service;
+package ar.com.codoacodo.flysky.service.implementaciones;
 
 
 import ar.com.codoacodo.flysky.dto.ReservaDto;
@@ -8,6 +8,7 @@ import ar.com.codoacodo.flysky.entity.Reserva;
 import ar.com.codoacodo.flysky.entity.Usuario;
 import ar.com.codoacodo.flysky.entity.Vuelo;
 import ar.com.codoacodo.flysky.repository.IReservaRepository;
+import ar.com.codoacodo.flysky.service.interfaces.IReservaService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

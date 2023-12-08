@@ -1,4 +1,4 @@
-package ar.com.codoacodo.flysky.service;
+package ar.com.codoacodo.flysky.service.implementaciones;
 
 import ar.com.codoacodo.flysky.dto.VueloDto;
 import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
@@ -6,6 +6,7 @@ import ar.com.codoacodo.flysky.entity.Aerolinea;
 import ar.com.codoacodo.flysky.entity.Aeropuerto;
 import ar.com.codoacodo.flysky.entity.Vuelo;
 import ar.com.codoacodo.flysky.repository.IVueloRepository;
+import ar.com.codoacodo.flysky.service.interfaces.IVueloService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

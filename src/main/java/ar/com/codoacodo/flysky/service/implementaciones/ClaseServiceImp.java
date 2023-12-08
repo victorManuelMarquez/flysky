@@ -1,10 +1,11 @@
-package ar.com.codoacodo.flysky.service;
+package ar.com.codoacodo.flysky.service.implementaciones;
 
 
 import ar.com.codoacodo.flysky.dto.ClaseDto;
 import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
 import ar.com.codoacodo.flysky.entity.*;
 import ar.com.codoacodo.flysky.repository.IClaseRepository;
+import ar.com.codoacodo.flysky.service.interfaces.IClaseService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

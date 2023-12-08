@@ -1,8 +1,8 @@
 package ar.com.codoacodo.flysky.controller;
 
 import ar.com.codoacodo.flysky.dto.AsientoDto;
-import ar.com.codoacodo.flysky.service.AsientoServiceImp;
-import ar.com.codoacodo.flysky.service.IAsientoService;
+import ar.com.codoacodo.flysky.service.implementaciones.AsientoServiceImp;
+import ar.com.codoacodo.flysky.service.interfaces.IAsientoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

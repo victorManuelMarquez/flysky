@@ -1,4 +1,4 @@
-package ar.com.codoacodo.flysky.service;
+package ar.com.codoacodo.flysky.service.interfaces;
 
 import ar.com.codoacodo.flysky.dto.ReservaDto;
 import ar.com.codoacodo.flysky.dto.response.RespuestaDto;

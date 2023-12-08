@@ -1,9 +1,10 @@
-package ar.com.codoacodo.flysky.service;
+package ar.com.codoacodo.flysky.service.implementaciones;
 
 import ar.com.codoacodo.flysky.dto.AsientoDto;
 import ar.com.codoacodo.flysky.dto.response.RespuestaDto;
 import ar.com.codoacodo.flysky.entity.*;
 import ar.com.codoacodo.flysky.repository.IAsientoRepository;
+import ar.com.codoacodo.flysky.service.interfaces.IAsientoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

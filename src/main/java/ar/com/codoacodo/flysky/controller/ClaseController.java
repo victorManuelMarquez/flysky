@@ -1,8 +1,8 @@
 package ar.com.codoacodo.flysky.controller;
 
 import ar.com.codoacodo.flysky.dto.ClaseDto;
-import ar.com.codoacodo.flysky.service.ClaseServiceImp;
-import ar.com.codoacodo.flysky.service.IClaseService;
+import ar.com.codoacodo.flysky.service.implementaciones.ClaseServiceImp;
+import ar.com.codoacodo.flysky.service.interfaces.IClaseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
