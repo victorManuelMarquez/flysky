@@ -1,9 +1,10 @@
 package ar.com.codoacodo.flysky.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
-
+@AllArgsConstructor
 @Data
 public class VueloDto {
 
