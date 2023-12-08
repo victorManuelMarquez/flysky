@@ -5,7 +5,7 @@ import ar.com.codoacodo.flysky.entity.Avion;
 import lombok.Data;
 
 @Data
-public class ClasesPorAvionesDto {
+public class ClasesPorAvionDto {
 
     private  Long id;
 

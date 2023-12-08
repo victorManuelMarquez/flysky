@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 
 @Table(name = "clases_por_aviones")
-public class ClasesPorAviones {
+public class ClasesPorAvion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
