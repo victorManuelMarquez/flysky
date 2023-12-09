@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IVueloRepository extends JpaRepository<Vuelo, Long> {
+    Vuelo save(Vuelo vuelo);
 }
