@@ -19,8 +19,10 @@ public class AsientoEntity {
     @JoinColumn(name = "id_clase", foreignKey = @ForeignKey(name = "fk_asiento_clase"))
     private ClaseEntity clase;
 
+    @Column
     private Integer cantidad;
 
+    @Column
     private Float precio;
 
 }
