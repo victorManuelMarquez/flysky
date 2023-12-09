@@ -26,7 +26,7 @@ public class AsientosController {
         return new ResponseEntity<>(service.buscarPorId(id), HttpStatus.OK);
     }
 
-    @PostMapping("/crear")
+    @PostMapping("/registrar")
     public ResponseEntity<?> crearNuevo(@RequestBody DtoAsiento nuevo) {
         return new ResponseEntity<>(service.agregarAsiento(nuevo), HttpStatus.OK);
     }

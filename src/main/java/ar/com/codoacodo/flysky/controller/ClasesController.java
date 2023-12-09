@@ -26,7 +26,7 @@ public class ClasesController {
         return new ResponseEntity<>(service.buscarPorId(id), HttpStatus.OK);
     }
 
-    @PostMapping("/nueva")
+    @PostMapping("/registrar")
     public ResponseEntity<?> crearNueva(@RequestBody DtoClase nueva) {
         return new ResponseEntity<>(service.agregarNueva(nueva), HttpStatus.OK);
     }
