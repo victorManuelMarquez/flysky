@@ -4,7 +4,7 @@ import ar.com.codoacodo.flysky.model.dto.DtoAerolinea;
 import ar.com.codoacodo.flysky.model.entity.AerolineaEntity;
 
 @SuppressWarnings("SpellCheckingInspection")
-public class AerolineaMapper extends BaseMapper {
+public final class AerolineaMapper extends BaseMapper {
 
     public static DtoAerolinea aDto(AerolineaEntity entity) {
         return new AerolineaMapper().getMapper().convertValue(entity, DtoAerolinea.class);
