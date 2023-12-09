@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
+//@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 public class VueloControllerTest {
 
@@ -53,10 +53,10 @@ public class VueloControllerTest {
     void comprarBoleto(){
         //Arrange
         VueloDto vueloSut = nuevoVuelo();
-        RespuestaDto body = new RespuestaDto("Test VueloController -> guardarVuelo -> OK");
+        RespuestaDto body = new RespuestaDto("Test VueloController -> comprarBoleto -> OK");
         ResponseEntity<?> expected = new ResponseEntity<>(body, HttpStatus.OK);
 
-        when(vueloServiceImp.guardarVuelo(any())).thenReturn(new RespuestaDto("Test VueloController -> guardarVuelo -> OK"));
+        when(vueloServiceImp.guardarVuelo(any())).thenReturn(new RespuestaDto("Test VueloController -> comprarBoleto -> OK"));
         //Act
         ResponseEntity<?> actual = vueloController.guardarVuelo(vueloSut);
         //Assert
@@ -64,12 +64,11 @@ public class VueloControllerTest {
     }
 
     @Test
-    @DisplayName("Test VueloController Camino Feliz -> guardarVuelo")
+    @DisplayName("Test VueloController Camino Feliz -> listaVuelos")
     void listaVuelos(){
         //Arrange
         List<VueloDto> listaVuelosSut = nuevosVuelos();
-        RespuestaDto body = new RespuestaDto("Test VueloController -> listaVuelos -> OK");
-        ResponseEntity<?> expected = new ResponseEntity<>(body, HttpStatus.OK);
+        ResponseEntity<?> expected = new ResponseEntity<>(listaVuelosSut, HttpStatus.OK);
 
         when(vueloServiceImp.listaVuelos()).thenReturn(listaVuelosSut);
         //Act
@@ -79,7 +78,7 @@ public class VueloControllerTest {
     }
 
     @Test
-    @DisplayName("Test VueloController Camino Feliz -> guardarVuelo")
+    @DisplayName("Test VueloController Camino Feliz -> buscarVueloPorId")
     void buscarVueloPorId(){
         //Arrange
         Long idSut = 1L;
@@ -92,18 +91,18 @@ public class VueloControllerTest {
         //Assert
         assertEquals(expected, actual);
     }
-/*
+
     @Test
-    @DisplayName("Test VueloController Camino Feliz -> guardarVuelo")
+    @DisplayName("Test VueloController Camino Feliz -> actualizarVueloPorId")
     void actualizarVueloPorId(){
         //Arrange
+        Long idSut = 1L;
         VueloDto vueloSut = nuevoVuelo();
-        RespuestaDto body = new RespuestaDto("Test VueloController -> guardarVuelo -> OK");
-        ResponseEntity<?> expected = new ResponseEntity<>(body, HttpStatus.OK);
+        ResponseEntity<?> expected = new ResponseEntity<>(new RespuestaDto("Vuelo actualizado correctamente"), HttpStatus.OK);
 
-        when(vueloServiceImp.guardarVuelo(any())).thenReturn(new RespuestaDto("Test VueloController -> guardarVuelo -> OK"));
+        when(vueloServiceImp.actualizarVueloPorId(idSut, vueloSut)).thenReturn(new RespuestaDto("Vuelo actualizado correctamente"));
         //Act
-        ResponseEntity<?> actual = vueloController.guardarVuelo(vueloSut);
+        ResponseEntity<?> actual = vueloController.actualizarVueloPorId(idSut, vueloSut);
         //Assert
         assertEquals(expected, actual);
     }
@@ -112,16 +111,16 @@ public class VueloControllerTest {
     @DisplayName("Test VueloController Camino Feliz -> guardarVuelo")
     void borrarVueloPorId(){
         //Arrange
-        VueloDto vueloSut = nuevoVuelo();
-        RespuestaDto body = new RespuestaDto("Test VueloController -> guardarVuelo -> OK");
+        Long idSut = 1L;
+        RespuestaDto body = new RespuestaDto("Vuelo borrado");
         ResponseEntity<?> expected = new ResponseEntity<>(body, HttpStatus.OK);
 
-        when(vueloServiceImp.guardarVuelo(any())).thenReturn(new RespuestaDto("Test VueloController -> guardarVuelo -> OK"));
+        when(vueloServiceImp.borrarVueloPorId(any())).thenReturn(new RespuestaDto("Vuelo borrado"));
         //Act
-        ResponseEntity<?> actual = vueloController.guardarVuelo(vueloSut);
+        ResponseEntity<?> actual = vueloController.borrarVueloPorId(idSut);
         //Assert
         assertEquals(expected, actual);
     }
-    */
+
 
 }
