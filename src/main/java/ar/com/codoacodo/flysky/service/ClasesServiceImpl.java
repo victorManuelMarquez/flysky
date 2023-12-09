@@ -1,7 +1,7 @@
 package ar.com.codoacodo.flysky.service;
 
 import ar.com.codoacodo.flysky.exception.ClaseNotFoundException;
-import ar.com.codoacodo.flysky.mapper.ClasesMapper;
+import ar.com.codoacodo.flysky.mapper.ClaseMapper;
 import ar.com.codoacodo.flysky.model.dto.DtoClase;
 import ar.com.codoacodo.flysky.model.entity.ClaseEntity;
 import ar.com.codoacodo.flysky.repository.ClasesRepository;
@@ -23,20 +23,20 @@ public class ClasesServiceImpl implements ClasesService {
 
     @Override
     public List<DtoClase> todasLasClases() {
-        return clasesRepository.findAll().stream().map(ClasesMapper::aDto).toList();
+        return clasesRepository.findAll().stream().map(ClaseMapper::aDto).toList();
     }
 
     @Override
     public DtoClase buscarPorId(Integer id) {
         Optional<ClaseEntity> entity = clasesRepository.findById(id);
         if (entity.isPresent())
-            return ClasesMapper.aDto(entity.get());
+            return ClaseMapper.aDto(entity.get());
         else throw new ClaseNotFoundException();
     }
 
     @Override
     public String agregarNueva(DtoClase nueva) {
-        clasesRepository.save(ClasesMapper.aEntidad(nueva));
+        clasesRepository.save(ClaseMapper.aEntidad(nueva));
         return "Se agregó la clase : \"" + nueva.getNombre() + "\"";
     }
 
@@ -45,7 +45,7 @@ public class ClasesServiceImpl implements ClasesService {
         Optional<ClaseEntity> entity = clasesRepository.findById(id);
         if (entity.isPresent()) {
             clasesRepository.deleteById(id);
-            return ClasesMapper.aDto(entity.get());
+            return ClaseMapper.aDto(entity.get());
         } else throw new ClaseNotFoundException();
     }
 
