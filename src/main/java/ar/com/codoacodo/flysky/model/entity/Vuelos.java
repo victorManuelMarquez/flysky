@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -19,21 +19,21 @@ public class Vuelos {
     private Integer id;
 
     @OneToOne
-    @JoinColumn(name = "id_aeropuerto_origen")
+    @JoinColumn(name = "id_aeropuerto_origen", foreignKey = @ForeignKey(name = "fk_vuelo_aeropuerto_origen"))
     private Aeropuertos origen;
 
     @OneToOne
-    @JoinColumn(name = "id_aeropuerto_destino")
+    @JoinColumn(name = "id_aeropuerto_destino", foreignKey = @ForeignKey(name = "fk_vuelo_aeropuerto_destino"))
     private Aeropuertos destino;
 
     @OneToOne
     @JoinColumn(name = "id_aerolinea")
     private Aerolineas aerolineas;
 
-    @Temporal(TemporalType.DATE)
-    private Date salida;
+    @Column(name = "salida", columnDefinition = "DATETIME")
+    private LocalDate salida;
 
-    @Temporal(TemporalType.DATE)
-    private Date llegada;
+    @Column(name = "llegada", columnDefinition = "DATETIME")
+    private LocalDate llegada;
 
 }
