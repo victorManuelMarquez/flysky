@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 @SuppressWarnings("SpellCheckingInspection")
-public class AvionExceptionController {
+public class AvionesExceptionController {
 
     @ExceptionHandler(AvionNoEncontrado.class)
     public ResponseEntity<?> avionNoEncontrado(AvionNoEncontrado exception) {
