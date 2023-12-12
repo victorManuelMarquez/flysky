@@ -8,23 +8,23 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "aeropuertos")
-public class Aeropuertos {
+@Entity(name = "aeronaves")
+@SuppressWarnings("SpellCheckingInspection")
+public class Aeronave {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
-    private String nombre;
+    @OneToOne
+    @JoinColumn(name = "id_avion")
+    private Avion avion;
+
+    @OneToOne
+    @JoinColumn(name = "id_clase")
+    private Clase clase;
 
     @Column
-    private String ciudad;
-
-//    @ManyToOne(targetEntity = Vuelos.class)
-//    private Vuelos vueloOrigen;
-//
-//    @ManyToOne(targetEntity = Vuelos.class)
-//    private Vuelos vueloDestino;
+    private Integer asientos;
 
 }
