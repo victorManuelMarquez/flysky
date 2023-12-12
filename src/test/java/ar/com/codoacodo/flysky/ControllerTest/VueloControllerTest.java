@@ -10,15 +10,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.Date;
 import java.util.List;
 
-import static ar.com.codoacodo.flysky.util.VuelosTest.nuevoVuelo;
-import static ar.com.codoacodo.flysky.util.VuelosTest.nuevosVuelos;
+import static ar.com.codoacodo.flysky.util.FactoryVuelosTest.nuevoVuelo;
+import static ar.com.codoacodo.flysky.util.FactoryVuelosTest.nuevosVuelos;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;

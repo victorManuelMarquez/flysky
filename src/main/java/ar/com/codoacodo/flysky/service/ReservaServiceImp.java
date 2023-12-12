@@ -18,9 +18,7 @@ import java.util.Optional;
 
 @Service
 public class ReservaServiceImp implements IReservaService {
-
     private IReservaRepository repository;
-
     public ReservaServiceImp(IReservaRepository repository) {
         this.repository = repository;
     }
@@ -101,7 +99,7 @@ public class ReservaServiceImp implements IReservaService {
         //Si existe lo borro
         //if(respositry.existsById(id)){
         repository.deleteById(id);
-        return new RespuestaDto("VReserva borrada");
+        return new RespuestaDto("Reserva borrada");
         //}
     }
 }

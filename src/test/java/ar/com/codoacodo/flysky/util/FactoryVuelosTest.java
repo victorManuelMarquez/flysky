@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class VuelosTest {
+public class FactoryVuelosTest {
     public static VueloDto nuevoVuelo(){
         AerolineaDto aeroLineaSut =  new AerolineaDto(2L, "Flybondi");
         AeropuertoDto aeropuertoOrigenSut = new AeropuertoDto(1L, "Aeropuerto Internacional Ezeiza", "Ezeiza - Pcia. de Buenos Aires");
