@@ -21,10 +21,10 @@ public class Aeropuertos {
     @Column
     private String ciudad;
 
-    @OneToOne(mappedBy = "origen")
-    private Vuelos vueloOrigen;
-
-    @OneToOne(mappedBy = "destino")
-    private Vuelos vueloDestino;
+//    @ManyToOne(targetEntity = Vuelos.class)
+//    private Vuelos vueloOrigen;
+//
+//    @ManyToOne(targetEntity = Vuelos.class)
+//    private Vuelos vueloDestino;
 
 }
