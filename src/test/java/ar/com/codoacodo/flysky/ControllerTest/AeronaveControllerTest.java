@@ -1,7 +1,7 @@
 package ar.com.codoacodo.flysky.ControllerTest;
 
 import ar.com.codoacodo.flysky.controller.AeronavesController;
-
+import ar.com.codoacodo.flysky.exception.AeronaveNoEncontrada;
 import ar.com.codoacodo.flysky.model.dto.DtoAeronave;
 import ar.com.codoacodo.flysky.service.AeronavesServiceImpl;
 import org.junit.jupiter.api.DisplayName;
@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -93,4 +94,32 @@ public class AeronaveControllerTest {
         // Assert
         assertEquals(expected, actual);
     }
+
+    @Test
+    @DisplayName("Test AeronaveController Camino No Feliz -> seleccionar (Aeronave no encontrada)")
+    void seleccionarAeronaveNoEncontrada() {
+        // Arrange
+        Integer idSut = 1;
+
+        // Mock
+        when(aeronaveService.buscarPorId(idSut)).thenThrow(new AeronaveNoEncontrada());
+
+        // Act and Assert
+        assertThrows(AeronaveNoEncontrada.class, () -> aeronaveController.seleccionar(idSut));
+    }
+
+    @Test
+    @DisplayName("Test AeronaveController Camino No Feliz -> eliminar (Aeronave no encontrada)")
+    void eliminarAeronaveNoEncontrada() {
+        // Arrange
+        Integer idSut = 1;
+
+        // Mock
+        when(aeronaveService.eliminar(idSut)).thenThrow(new AeronaveNoEncontrada());
+
+        // Act and Assert
+        assertThrows(AeronaveNoEncontrada.class, () -> aeronaveController.eliminar(idSut));
+    }
+
+
 }
