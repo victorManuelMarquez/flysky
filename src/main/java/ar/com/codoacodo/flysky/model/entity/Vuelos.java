@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -18,12 +19,12 @@ public class Vuelos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
-    @JoinColumn(name = "id_aeropuerto_origen", foreignKey = @ForeignKey(name = "fk_vuelo_aeropuerto_origen"))
+    @OneToOne(targetEntity = Aeropuertos.class)
+    @JoinColumn(name = "id_aeropuerto_origen", referencedColumnName = "id")
     private Aeropuertos origen;
 
-    @OneToOne
-    @JoinColumn(name = "id_aeropuerto_destino", foreignKey = @ForeignKey(name = "fk_vuelo_aeropuerto_destino"))
+    @OneToOne(targetEntity = Aeropuertos.class)
+    @JoinColumn(name = "id_aeropuerto_destino")
     private Aeropuertos destino;
 
     @OneToOne
