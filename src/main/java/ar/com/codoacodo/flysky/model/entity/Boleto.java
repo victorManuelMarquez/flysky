@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "boletos")
-public class Boletos {
+public class Boleto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +19,11 @@ public class Boletos {
 
     @OneToOne
     @JoinColumn(name = "id_vuelo")
-    private Vuelos vuelo;
+    private Vuelo vuelo;
 
     @OneToOne
     @JoinColumn(name = "id_aeronave")
-    private Aeronaves aeronave;
+    private Aeronave aeronave;
 
     @Column
     private Float precio;

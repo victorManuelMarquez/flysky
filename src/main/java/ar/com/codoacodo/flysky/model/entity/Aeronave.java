@@ -8,14 +8,23 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "aviones")
-public class Aviones {
+@Entity(name = "aeronaves")
+@SuppressWarnings("SpellCheckingInspection")
+public class Aeronave {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "marca_modelo")
-    private String marcaModelo;
+    @OneToOne
+    @JoinColumn(name = "id_avion")
+    private Avion avion;
+
+    @OneToOne
+    @JoinColumn(name = "id_clase")
+    private Clase clase;
+
+    @Column
+    private Integer asientos;
 
 }

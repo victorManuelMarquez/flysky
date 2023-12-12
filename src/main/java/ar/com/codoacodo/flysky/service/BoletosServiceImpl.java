@@ -2,7 +2,7 @@ package ar.com.codoacodo.flysky.service;
 
 import ar.com.codoacodo.flysky.exception.BoletoNoEncontrado;
 import ar.com.codoacodo.flysky.model.dto.DtoBoleto;
-import ar.com.codoacodo.flysky.model.entity.Boletos;
+import ar.com.codoacodo.flysky.model.entity.Boleto;
 import ar.com.codoacodo.flysky.repository.BoletosRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -33,7 +33,7 @@ public class BoletosServiceImpl implements BoletosService {
 
     @Override
     public DtoBoleto buscarPorId(Integer id) {
-        Optional<Boletos> boletos = repository.findById(id);
+        Optional<Boleto> boletos = repository.findById(id);
         if (boletos.isPresent())
             return getMapper().convertValue(boletos.get(), DtoBoleto.class);
         else throw new BoletoNoEncontrado();
@@ -41,13 +41,13 @@ public class BoletosServiceImpl implements BoletosService {
 
     @Override
     public DtoBoleto agregarBoleto(DtoBoleto nuevo) {
-        Boletos boletos = repository.save(getMapper().convertValue(nuevo, Boletos.class));
-        return getMapper().convertValue(boletos, DtoBoleto.class);
+        Boleto boleto = repository.save(getMapper().convertValue(nuevo, Boleto.class));
+        return getMapper().convertValue(boleto, DtoBoleto.class);
     }
 
     @Override
     public DtoBoleto eliminar(Integer id) {
-        Optional<Boletos> boletos = repository.findById(id);
+        Optional<Boleto> boletos = repository.findById(id);
         if (boletos.isPresent()) {
             repository.deleteById(id);
             return getMapper().convertValue(boletos.get(), DtoBoleto.class);

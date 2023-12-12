@@ -1,9 +1,9 @@
 package ar.com.codoacodo.flysky.repository;
 
-import ar.com.codoacodo.flysky.model.entity.Boletos;
+import ar.com.codoacodo.flysky.model.entity.Boleto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BoletosRepository extends JpaRepository<Boletos, Integer> {
+public interface BoletosRepository extends JpaRepository<Boleto, Integer> {
 }

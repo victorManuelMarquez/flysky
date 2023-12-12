@@ -5,26 +5,35 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "aeronaves")
+@Entity(name = "pasajeros")
 @SuppressWarnings("SpellCheckingInspection")
-public class Aeronaves {
+public class Pasajero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
-    @JoinColumn(name = "id_avion")
-    private Aviones avion;
+    @Column
+    private String dni;
 
-    @OneToOne
-    @JoinColumn(name = "id_clase")
-    private Clases clase;
+    @Column(name = "nombre_completo")
+    private String nombreCompleto;
 
     @Column
-    private Integer asientos;
+    private String domicilio;
+
+    @Temporal(TemporalType.DATE)
+    private Date nacimiento;
+
+    @Column
+    private String email;
+
+    @Column
+    private String telefono;
 
 }

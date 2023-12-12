@@ -8,9 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "aerolineas")
-@SuppressWarnings("SpellCheckingInspection")
-public class Aerolineas {
+@Entity(name = "aeropuertos")
+public class Aeropuerto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +17,14 @@ public class Aerolineas {
 
     @Column
     private String nombre;
+
+    @Column
+    private String ciudad;
+
+//    @ManyToOne(targetEntity = Vuelos.class)
+//    private Vuelos vueloOrigen;
+//
+//    @ManyToOne(targetEntity = Vuelos.class)
+//    private Vuelos vueloDestino;
 
 }

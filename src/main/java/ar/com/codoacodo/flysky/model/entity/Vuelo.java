@@ -12,23 +12,23 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity(name = "vuelos")
 @SuppressWarnings("SpellCheckingInspection")
-public class Vuelos {
+public class Vuelo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
-    @JoinColumn(name = "id_aeropuerto_origen", foreignKey = @ForeignKey(name = "fk_vuelo_aeropuerto_origen"))
-    private Aeropuertos origen;
+    @OneToOne(targetEntity = Aeropuerto.class)
+    @JoinColumn(name = "id_aeropuerto_origen", referencedColumnName = "id")
+    private Aeropuerto origen;
 
-    @OneToOne
-    @JoinColumn(name = "id_aeropuerto_destino", foreignKey = @ForeignKey(name = "fk_vuelo_aeropuerto_destino"))
-    private Aeropuertos destino;
+    @OneToOne(targetEntity = Aeropuerto.class)
+    @JoinColumn(name = "id_aeropuerto_destino")
+    private Aeropuerto destino;
 
     @OneToOne
     @JoinColumn(name = "id_aerolinea")
-    private Aerolineas aerolineas;
+    private Aerolinea aerolinea;
 
     @Column(name = "salida", columnDefinition = "DATETIME")
     private LocalDate salida;
