@@ -6,30 +6,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "vuelos")
 @SuppressWarnings("SpellCheckingInspection")
-public class Vuelos {
+public class Vuelo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(targetEntity = Aeropuertos.class)
+    @OneToOne(targetEntity = Aeropuerto.class)
     @JoinColumn(name = "id_aeropuerto_origen", referencedColumnName = "id")
-    private Aeropuertos origen;
+    private Aeropuerto origen;
 
-    @OneToOne(targetEntity = Aeropuertos.class)
+    @OneToOne(targetEntity = Aeropuerto.class)
     @JoinColumn(name = "id_aeropuerto_destino")
-    private Aeropuertos destino;
+    private Aeropuerto destino;
 
     @OneToOne
     @JoinColumn(name = "id_aerolinea")
-    private Aerolineas aerolineas;
+    private Aerolinea aerolinea;
 
     @Column(name = "salida", columnDefinition = "DATETIME")
     private LocalDate salida;

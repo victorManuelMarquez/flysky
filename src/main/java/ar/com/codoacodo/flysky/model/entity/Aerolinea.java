@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "clases")
-public class Clases {
+@Entity(name = "aerolineas")
+@SuppressWarnings("SpellCheckingInspection")
+public class Aerolinea {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

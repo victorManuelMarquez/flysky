@@ -1,7 +1,7 @@
 package ar.com.codoacodo.flysky.model.dto;
 
-import ar.com.codoacodo.flysky.model.entity.Aviones;
-import ar.com.codoacodo.flysky.model.entity.Clases;
+import ar.com.codoacodo.flysky.model.entity.Avion;
+import ar.com.codoacodo.flysky.model.entity.Clase;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
@@ -17,9 +17,9 @@ public class DtoAeronave {
     @PositiveOrZero
     private Integer id;
 
-    private Aviones avion;
+    private Avion avion;
 
-    private Clases clase;
+    private Clase clase;
 
     @Positive
     private Integer asientos;
