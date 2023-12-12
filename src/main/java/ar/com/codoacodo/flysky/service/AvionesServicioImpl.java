@@ -2,11 +2,7 @@ package ar.com.codoacodo.flysky.service;
 
 import ar.com.codoacodo.flysky.exception.AvionNoEncontrado;
 import ar.com.codoacodo.flysky.model.dto.DtoAvion;
-<<<<<<< HEAD
-import ar.com.codoacodo.flysky.model.entity.Aviones;
-=======
 import ar.com.codoacodo.flysky.model.entity.Avion;
->>>>>>> db269efdddf305e63acb66105951da99a0ab8eeb
 import ar.com.codoacodo.flysky.repository.AvionesRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -38,11 +34,7 @@ public class AvionesServicioImpl implements AvionesServicio {
 
     @Override
     public DtoAvion buscarPorId(Integer id) {
-<<<<<<< HEAD
-        Optional<Aviones> aviones = repository.findById(id);
-=======
         Optional<Avion> aviones = repository.findById(id);
->>>>>>> db269efdddf305e63acb66105951da99a0ab8eeb
         if (aviones.isPresent())
             return getMapper().convertValue(aviones.get(), DtoAvion.class);
         else throw new AvionNoEncontrado();
@@ -50,21 +42,13 @@ public class AvionesServicioImpl implements AvionesServicio {
 
     @Override
     public DtoAvion agregarNuevo(DtoAvion avion) {
-<<<<<<< HEAD
-        Aviones aviones = repository.save(getMapper().convertValue(avion, Aviones.class));
-=======
         Avion aviones = repository.save(getMapper().convertValue(avion, Avion.class));
->>>>>>> db269efdddf305e63acb66105951da99a0ab8eeb
         return getMapper().convertValue(aviones, DtoAvion.class);
     }
 
     @Override
     public DtoAvion eliminar(Integer id) {
-<<<<<<< HEAD
-        Optional<Aviones> aviones = repository.findById(id);
-=======
         Optional<Avion> aviones = repository.findById(id);
->>>>>>> db269efdddf305e63acb66105951da99a0ab8eeb
         if (aviones.isPresent()) {
             repository.deleteById(id);
             return getMapper().convertValue(aviones.get(), DtoAvion.class);
