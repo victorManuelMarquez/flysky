@@ -1,6 +1,6 @@
 package ar.com.codoacodo.flysky.util;
 
-public class FactoryReservaTest {
+public class FactoryReservasTest {
 
     /*private static ReservaDto unaReserva(){
         return new ReservaDto(1L, unUsuario(),nuevoVuelo(), unPasajero(), new Date(2023,11,30,04,15,00), "sdl3828csm329mm", 0);

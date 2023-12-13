@@ -58,9 +58,9 @@ public class IntegrationTestAerolineas {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.nombre").value("Aerolineas Nueva 55"));
+                .andExpect(jsonPath("$.nombre").value("Aerolineas Nueva "+FactoryAerolineasTest.id));
     }
-    /*@Test
+    @Test
     @DisplayName("Test Integracion Camino Feliz -> /api/aerolineas/{id}/eliminar -> eliminar")
     void aerolineasEliminarOkTest() throws Exception {
         DtoAerolinea dtoAerolinea = FactoryAerolineasTest.nuevaAerolinea();
@@ -71,12 +71,12 @@ public class IntegrationTestAerolineas {
 
         String payload = writer.writeValueAsString(dtoAerolinea);
 
-        mockMvc.perform(delete("/api/aerolineas/{id}/eliminar", 13))
+        mockMvc.perform(delete("/api/aerolineas/{id}/eliminar", dtoAerolinea.getId()))
                 .andDo(print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(13))
-                .andExpect(jsonPath("$.nombre").value("Aerolineas Nueva 55"));
-    }*/
+                .andExpect(jsonPath("$.id").value(FactoryAerolineasTest.id))
+                .andExpect(jsonPath("$.nombre").value("Aerolineas Nueva "+FactoryAerolineasTest.id));
+    }
 
 }

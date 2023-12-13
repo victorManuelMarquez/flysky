@@ -31,7 +31,7 @@ public class AeronavesController {
         return new ResponseEntity<>(service.agregarAeronave(nueva), HttpStatus.OK);
     }
 
-    @PostMapping("/{id}/eliminar")
+    @DeleteMapping("/{id}/eliminar")
     public ResponseEntity<?> eliminar(@PathVariable Integer id) {
         return new ResponseEntity<>(service.eliminar(id), HttpStatus.OK);
     }
