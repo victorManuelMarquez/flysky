@@ -1,22 +1,24 @@
 package ar.com.codoacodo.flysky.ControllerTest;
 
-       import ar.com.codoacodo.flysky.controller.AerolineasController;
-        import ar.com.codoacodo.flysky.model.dto.DtoAerolinea;
-        import ar.com.codoacodo.flysky.service.AerolineasServiceImpl;
-        import org.junit.jupiter.api.DisplayName;
-        import org.junit.jupiter.api.Test;
-        import org.junit.jupiter.api.extension.ExtendWith;
-        import org.mockito.InjectMocks;
-        import org.mockito.Mock;
-        import org.mockito.junit.jupiter.MockitoExtension;
-        import org.springframework.http.HttpStatus;
-        import org.springframework.http.ResponseEntity;
+import ar.com.codoacodo.flysky.controller.AerolineasController;
+import ar.com.codoacodo.flysky.exception.AerolineaNoEncontrada;
+import ar.com.codoacodo.flysky.model.dto.DtoAerolinea;
+import ar.com.codoacodo.flysky.service.AerolineasServiceImpl;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
-        import static org.junit.jupiter.api.Assertions.assertEquals;
-        import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class AerolineasControllerTest {
@@ -92,4 +94,30 @@ public class AerolineasControllerTest {
         // Assert
         assertEquals(expected, actual);
     }
+    @Test
+    @DisplayName("Test AerolineasController Camino No Feliz -> seleccionar (Aerolinea no encontrada)")
+    void seleccionarAerolineaNoEncontrada() {
+        // Arrange
+        Integer idSut = 1;
+
+        // Mock
+        when(aerolineasService.buscarPorId(idSut)).thenThrow(new AerolineaNoEncontrada());
+
+        // Act and Assert
+        assertThrows(AerolineaNoEncontrada.class, () -> aerolineasController.seleccionar(idSut));
+    }
+
+    @Test
+    @DisplayName("Test AerolineasController Camino No Feliz -> eliminar (Aerolinea no encontrada)")
+    void eliminarAerolineaNoEncontrada() {
+        // Arrange
+        Integer idSut = 1;
+
+        // Mock
+        when(aerolineasService.eliminar(idSut)).thenThrow(new AerolineaNoEncontrada());
+
+        // Act and Assert
+        assertThrows(AerolineaNoEncontrada.class, () -> aerolineasController.eliminar(idSut));
+    }
+
 }

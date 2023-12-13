@@ -1,8 +1,9 @@
 package ar.com.codoacodo.flysky.DTOsTest;
 
 
-import ar.com.codoacodo.flysky.model.dto.DtoAerolinea;
-import ar.com.codoacodo.flysky.model.dto.DtoAeronave;
+import ar.com.codoacodo.flysky.model.dto.*;
+import ar.com.codoacodo.flysky.model.entity.Aerolinea;
+import ar.com.codoacodo.flysky.model.entity.Aeropuerto;
 import ar.com.codoacodo.flysky.model.entity.Avion;
 import ar.com.codoacodo.flysky.model.entity.Clase;
 import jakarta.validation.ConstraintViolation;
@@ -11,6 +12,8 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -34,7 +37,7 @@ public class DtoTest {
         Set<ConstraintViolation<DtoAeronave>> violations = validator.validate(dtoAeronave);
         assertTrue(violations.isEmpty());
     }
-/*
+
     @Test
     void testDtoVueloValidation() {
 
@@ -47,8 +50,6 @@ public class DtoTest {
     @Test
     void testDtoPasajeroValidation() {
         DtoPasajero dtoPasajero = new DtoPasajero(1, "123456789", "Nombre Apellido", "Dirección", new Date(), "correo@example.com", "123456789");
-
-
 
         Set<ConstraintViolation<DtoPasajero>> violations = validator.validate(dtoPasajero);
         assertTrue(violations.isEmpty());
@@ -68,5 +69,19 @@ public class DtoTest {
 
         Set<ConstraintViolation<DtoBoleto>> violations = validator.validate(dtoBoleto);
         assertTrue(violations.isEmpty());
-    }*/
+    }
+    @Test
+    void testDtoAvionValidation() {
+        DtoAvion dtoAvion = new DtoAvion(1, "Avion1");
+
+        Set<ConstraintViolation<DtoAvion>> violations = validator.validate(dtoAvion);
+        assertTrue(violations.isEmpty());
+    }
+    @Test
+    void testDtoClaseValidation() {
+        DtoClase dtoClase = new DtoClase(1, "Clase");
+
+        Set<ConstraintViolation<DtoClase>> violations = validator.validate(dtoClase);
+        assertTrue(violations.isEmpty());
+    }
 }

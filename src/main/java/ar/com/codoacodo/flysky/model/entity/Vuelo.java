@@ -36,4 +36,6 @@ public class Vuelo {
     @Column(name = "llegada", columnDefinition = "DATETIME")
     private LocalDate llegada;
 
+    public Vuelo(int id, int i, int i1, String aerolinea2, String date, String date1) {
+    }
 }

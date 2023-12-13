@@ -17,23 +17,23 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class ServiceVuelosTest {
-
+////Utilizar mock cuando haya inyeccion de dependencia controlador y servicee
     @Mock
     private VuelosRepository repository;
 
     @InjectMocks
     private VuelosServiceImpl vuelosService;
 
-
-
-/*
-    @Test
+    /*@Test
     @DisplayName("Camino Feliz todosLosVuelos")
     void todosLosVuelosTest() {
         // Arrange
         List<Vuelo> vuelos = new ArrayList<>();
-        vuelos.add(new Vuelo(1, 2, 1, "2023-01-01", "2023-01-02"));
-        vuelos.add(new Vuelo(3, 4, 2, "2023-02-01", "2023-02-02"));
+
+        vuelos.add(new Vuelo(1, 2,1,"Aerolinea1", "2023-01-01","2023-01-02"));
+
+        vuelos.add(new Vuelo(3,4, 2, "Aerolinea2", "2023-02-01","2023-02-02"));
+
         when(repository.findAll()).thenReturn(vuelos);
 
         // Act
@@ -42,13 +42,14 @@ public class ServiceVuelosTest {
         // Assert
         assertEquals(2, result.size());
     }
-
+*/
+/*
     @Test
     @DisplayName("Camino Feliz buscarPorId")
     void buscarPorIdTest() {
         // Arrange
         int id = 1;
-        Vuelo vuelo = new Vuelo(1, 2, 1, "2023-01-01", "2023-01-02");
+        Vuelo vuelo = new Vuelo(1,2,1,"aerolinea2","2023-01-01","2023-01-01");
         when(repository.findById(id)).thenReturn(Optional.of(vuelo));
 
         // Act
@@ -58,7 +59,7 @@ public class ServiceVuelosTest {
         assertEquals(2, result.getAerolinea().getId());
         assertEquals(1, result.getOrigen().getId());
     }
-*/
+
     @Test
     @DisplayName("Camino NO feliz buscarPorId - VueloNoEncontrado")
     void buscarPorIdThrowExceptionTest() {
