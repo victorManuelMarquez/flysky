@@ -66,7 +66,7 @@ public class IntegrationTestAeropuertos {
     @Test
     @DisplayName("Test Integracion Camino Feliz -> /api/aeropuertos/{id}/eliminar -> eliminar")
     void aeropuertosEliminarOkTest() throws Exception {
-        DtoAeropuerto dtoAeropuerto = FactoryAeropuertosTest.eliminarAeropuerto();
+        DtoAeropuerto dtoAeropuerto = FactoryAeropuertosTest.nuevoAeropuerto();
 
         ObjectWriter writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)

@@ -10,7 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 public class FactoryAeropuertosTest {
-    public static int id = 57º;
+    public static int id = 57;
     public static DtoAeropuerto nuevoAeropuerto(){
         id++;
         return new DtoAeropuerto(id, "Aeropuerto Prueba "+id, "Ciudad Pruebaz "+id);
