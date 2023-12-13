@@ -32,7 +32,7 @@ public class AvionesController {
         return new ResponseEntity<>(servicio.agregarNuevo(avion), HttpStatus.OK);
     }
 
-    @PostMapping("/{id}/eliminar")
+    @DeleteMapping("/{id}/eliminar")
     public ResponseEntity<?> eliminar(@PathVariable Integer id) {
         return new ResponseEntity<>(servicio.eliminar(id), HttpStatus.OK);
     }

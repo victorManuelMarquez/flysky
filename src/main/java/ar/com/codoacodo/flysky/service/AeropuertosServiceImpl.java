@@ -1,7 +1,10 @@
 package ar.com.codoacodo.flysky.service;
 
+import ar.com.codoacodo.flysky.exception.AeronaveNoEncontrada;
 import ar.com.codoacodo.flysky.exception.AeropuertoNoEncontrado;
+import ar.com.codoacodo.flysky.model.dto.DtoAeronave;
 import ar.com.codoacodo.flysky.model.dto.DtoAeropuerto;
+import ar.com.codoacodo.flysky.model.entity.Aeronave;
 import ar.com.codoacodo.flysky.model.entity.Aeropuerto;
 import ar.com.codoacodo.flysky.repository.AeropuertosRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,7 +36,11 @@ public class AeropuertosServiceImpl implements AeropuertosService {
 
     @Override
     public DtoAeropuerto buscarPorId(Integer id) {
-        return getMapper().convertValue(repository.findById(id), DtoAeropuerto.class);
+        //return getMapper().convertValue(repository.findById(id), DtoAeropuerto.class);
+        Optional<Aeropuerto> aeropuerto = repository.findById(id);
+        if (aeropuerto.isPresent())
+            return getMapper().convertValue(aeropuerto.get(), DtoAeropuerto.class);
+        else throw new AeropuertoNoEncontrado();
     }
 
     @Override
