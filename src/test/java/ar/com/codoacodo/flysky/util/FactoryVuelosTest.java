@@ -1,14 +1,12 @@
 package ar.com.codoacodo.flysky.util;
 
-import ar.com.codoacodo.flysky.dto.AerolineaDto;
-import ar.com.codoacodo.flysky.dto.AeropuertoDto;
-import ar.com.codoacodo.flysky.dto.VueloDto;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class FactoryVuelosTest {
+    /*
     public static VueloDto nuevoVuelo(){
         AerolineaDto aeroLineaSut =  new AerolineaDto(2L, "Flybondi");
         AeropuertoDto aeropuertoOrigenSut = new AeropuertoDto(1L, "Aeropuerto Internacional Ezeiza", "Ezeiza - Pcia. de Buenos Aires");
@@ -34,4 +32,6 @@ public class FactoryVuelosTest {
         ));
 
     }
+
+     */
 }
