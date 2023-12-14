@@ -1,6 +1,8 @@
 package ar.com.codoacodo.flysky.ServiceTest;
 
 import ar.com.codoacodo.flysky.exception.VueloNoEncontrado;
+import ar.com.codoacodo.flysky.model.dto.DtoVuelo;
+import ar.com.codoacodo.flysky.model.entity.Vuelo;
 import ar.com.codoacodo.flysky.repository.VuelosRepository;
 import ar.com.codoacodo.flysky.service.VuelosServiceImpl;
 import org.junit.jupiter.api.DisplayName;
@@ -10,8 +12,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
@@ -24,7 +29,7 @@ public class ServiceVuelosTest {
     @InjectMocks
     private VuelosServiceImpl vuelosService;
 
-    /*@Test
+    @Test
     @DisplayName("Camino Feliz todosLosVuelos")
     void todosLosVuelosTest() {
         // Arrange
@@ -42,7 +47,7 @@ public class ServiceVuelosTest {
         // Assert
         assertEquals(2, result.size());
     }
-*/
+
 /*
     @Test
     @DisplayName("Camino Feliz buscarPorId")
@@ -59,7 +64,7 @@ public class ServiceVuelosTest {
         assertEquals(2, result.getAerolinea().getId());
         assertEquals(1, result.getOrigen().getId());
     }
-
+*/
     @Test
     @DisplayName("Camino NO feliz buscarPorId - VueloNoEncontrado")
     void buscarPorIdThrowExceptionTest() {
@@ -93,7 +98,7 @@ public class ServiceVuelosTest {
     void eliminarTest() {
         // Arrange
         int id = 1;
-        Vuelo vuelo = new Vuelo(1, 2, 1, "2023-01-01", "2023-01-02");
+        Vuelo vuelo = new Vuelo(1,2,1,"aerolinea2","2023-01-01","2023-01-01");
         when(repository.findById(id)).thenReturn(Optional.of(vuelo));
 
         // Act
@@ -103,8 +108,8 @@ public class ServiceVuelosTest {
         assertEquals(2, result.getAerolinea().getId());
         assertEquals(1, result.getOrigen().getId());
         verify(repository, times(1)).deleteById(id);
-    }
-*/
+    }*/
+
     @Test
     @DisplayName("Camino NO feliz eliminar - VueloNoEncontrado")
     void eliminarThrowExceptionTest() {

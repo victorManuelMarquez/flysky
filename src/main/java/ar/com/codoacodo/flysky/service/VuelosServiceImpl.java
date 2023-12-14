@@ -5,9 +5,7 @@ import ar.com.codoacodo.flysky.model.dto.DtoVuelo;
 import ar.com.codoacodo.flysky.model.entity.Vuelo;
 import ar.com.codoacodo.flysky.repository.VuelosRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,14 +13,21 @@ import java.util.List;
 import java.util.Optional;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @Service
 public class VuelosServiceImpl implements VuelosService {
 
-    @Autowired
+    //@Autowired
     private VuelosRepository repository;
 
+    //@Autowired
     private ObjectMapper mapper;
+
+   public VuelosServiceImpl(VuelosRepository repository, ObjectMapper mapper) {
+        this.repository = repository;
+       this.mapper = (mapper != null) ? mapper : new ObjectMapper();
+    }
+
 
     @Override
     public List<DtoVuelo> todosLosVuelos() {

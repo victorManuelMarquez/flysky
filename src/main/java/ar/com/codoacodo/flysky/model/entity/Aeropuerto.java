@@ -21,6 +21,8 @@ public class Aeropuerto {
     @Column
     private String ciudad;
 
+
+
 //    @ManyToOne(targetEntity = Vuelos.class)
 //    private Vuelos vueloOrigen;
 //

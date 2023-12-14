@@ -5,9 +5,7 @@ import ar.com.codoacodo.flysky.model.dto.DtoAerolinea;
 import ar.com.codoacodo.flysky.model.entity.Aerolinea;
 import ar.com.codoacodo.flysky.repository.AerolineasRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,15 +13,20 @@ import java.util.List;
 import java.util.Optional;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @Service
 @SuppressWarnings("SpellCheckingInspection")
 public class AerolineasServiceImpl implements AerolineasService {
 
-    @Autowired
+  //  @Autowired
     private AerolineasRepository repository;
 
     private ObjectMapper mapper;
+
+    public AerolineasServiceImpl(AerolineasRepository repository, ObjectMapper mapper) {
+        this.repository = repository;
+        this.mapper = (mapper != null) ? mapper : new ObjectMapper();
+    }
 
     @Override
     public List<DtoAerolinea> todasLasAerolineas() {

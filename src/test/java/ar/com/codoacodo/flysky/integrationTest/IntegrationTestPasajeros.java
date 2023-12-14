@@ -1,8 +1,6 @@
 package ar.com.codoacodo.flysky.integrationTest;
 
-import ar.com.codoacodo.flysky.model.dto.DtoAerolinea;
 import ar.com.codoacodo.flysky.model.dto.DtoPasajero;
-import ar.com.codoacodo.flysky.util.FactoryAerolineasTest;
 import ar.com.codoacodo.flysky.util.FactoryPasajerosTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -18,7 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -33,7 +30,7 @@ public class IntegrationTestPasajeros {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].nombreCompleto").value("Juan Pérez"));
     }
-        @Test
+    @Test
     @DisplayName("Test Integracion Camino Feliz -> /api/pasajeros/{id} -> buscarPorId")
     void pasajerosSeleccionarOkTest() throws Exception {
         mockMvc.perform(get("/api/pasajeros/{id}", 7))

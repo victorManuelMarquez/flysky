@@ -1,7 +1,6 @@
 package ar.com.codoacodo.flysky.ExceptionTest;
 
 import ar.com.codoacodo.flysky.controller.exception.PasajerosExceptionController;
-import ar.com.codoacodo.flysky.exception.ClaseNoEncontrada;
 import ar.com.codoacodo.flysky.exception.PasajeroNoEncontrado;
 import ar.com.codoacodo.flysky.exception.dto.ErrorDto;
 import org.junit.jupiter.api.DisplayName;
@@ -19,7 +18,7 @@ public class TestPasajerosExceptionController {
     PasajerosExceptionController pasajerosExceptionController;
     @Test
     @DisplayName("Test Camino Feliz ClasesException -> claseNoEncontrada")
-    void boletoNoEncontrado(){
+    void pasajeroNoEncontrado(){
         PasajeroNoEncontrado pasajeroNoEncontradoSut = new PasajeroNoEncontrado();
         ErrorDto body = new ErrorDto(404, pasajeroNoEncontradoSut.getMessage());
         ResponseEntity<?> expected = new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
