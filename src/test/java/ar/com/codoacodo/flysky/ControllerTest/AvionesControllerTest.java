@@ -63,7 +63,7 @@ public class AvionesControllerTest {
     @DisplayName("Test AvionesController Camino Feliz -> registrar")
     void registrar() {
         // Arrange
-        DtoAvion avionSut = new DtoAvion(); // Replace with your actual DtoAvion instance
+        DtoAvion avionSut = new DtoAvion();
         ResponseEntity<?> expected = new ResponseEntity<>(avionSut, HttpStatus.OK);
 
         when(avionesServicio.agregarNuevo(avionSut)).thenReturn(avionSut);
@@ -80,7 +80,7 @@ public class AvionesControllerTest {
     void eliminar() {
         // Arrange
         Integer idSut = 1;
-        DtoAvion avionSut = new DtoAvion(); // Replace with your actual DtoAvion instance
+        DtoAvion avionSut = new DtoAvion();
         ResponseEntity<?> expected = new ResponseEntity<>(avionSut, HttpStatus.OK);
 
         when(avionesServicio.eliminar(idSut)).thenReturn(avionSut);

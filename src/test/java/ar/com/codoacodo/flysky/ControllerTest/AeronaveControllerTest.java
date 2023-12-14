@@ -66,7 +66,7 @@ public class AeronaveControllerTest {
     @DisplayName("Test AeronaveController Camino Feliz -> registrar")
     void registrar() {
         // Arrange
-        DtoAeronave aeronaveSut = new DtoAeronave(); // Replace with your actual Aeronave instance
+        DtoAeronave aeronaveSut = new DtoAeronave();
         ResponseEntity<?> expected = new ResponseEntity<>(aeronaveSut, HttpStatus.OK);
 
         when(aeronaveService.agregarAeronave(aeronaveSut)).thenReturn(aeronaveSut);
@@ -83,7 +83,7 @@ public class AeronaveControllerTest {
     void eliminar() {
         // Arrange
         Integer idSut = 1;
-        DtoAeronave aeronaveSut = new DtoAeronave(); // Replace with your actual Aeronave instance
+        DtoAeronave aeronaveSut = new DtoAeronave();
         ResponseEntity<?> expected = new ResponseEntity<>(aeronaveSut, HttpStatus.OK);
 
         when(aeronaveService.eliminar(idSut)).thenReturn(aeronaveSut);

@@ -66,7 +66,7 @@ public class AeropuertoControllerTest {
     @DisplayName("Test AeropuertoController Camino Feliz -> registrar")
     void registrar() {
         // Arrange
-        DtoAeropuerto aeropuertoSut = new DtoAeropuerto(); // Reemplaza con tu instancia real de Aeropuerto
+        DtoAeropuerto aeropuertoSut = new DtoAeropuerto();
         ResponseEntity<?> expected = new ResponseEntity<>(aeropuertoSut, HttpStatus.OK);
 
         when(aeropuertosService.agregarNuevo(aeropuertoSut)).thenReturn(aeropuertoSut);
@@ -83,7 +83,7 @@ public class AeropuertoControllerTest {
     void eliminar() {
         // Arrange
         Integer idSut = 1;
-        DtoAeropuerto aeropuertoSut = new DtoAeropuerto(); // Reemplaza con tu instancia real de Aeropuerto
+        DtoAeropuerto aeropuertoSut = new DtoAeropuerto();
         ResponseEntity<?> expected = new ResponseEntity<>(aeropuertoSut, HttpStatus.OK);
 
         when(aeropuertosService.eliminar(idSut)).thenReturn(aeropuertoSut);

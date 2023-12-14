@@ -1,5 +1,6 @@
 package ar.com.codoacodo.flysky.exception;
 
+//@NoArgsConstructor
 public class AeropuertoNoEncontrado extends RuntimeException {
 
 

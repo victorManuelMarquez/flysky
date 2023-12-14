@@ -1,5 +1,6 @@
 package ar.com.codoacodo.flysky.exception;
 
+//@NoArgsConstructor
 @SuppressWarnings("SpellCheckingInspection")
 public class AerolineaNoEncontrada extends RuntimeException {
 

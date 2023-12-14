@@ -1,7 +1,8 @@
 package ar.com.codoacodo.flysky.exception;
 
-public class AeronaveNoEncontrada extends RuntimeException {
+import lombok.NoArgsConstructor;
 
+<<<<<<< HEAD
 
     public AeronaveNoEncontrada() {
     }
@@ -10,6 +11,10 @@ public class AeronaveNoEncontrada extends RuntimeException {
         super(message);
     }
 
+=======
+@NoArgsConstructor
+public class AeronaveNoEncontrada extends RuntimeException {
+>>>>>>> 00b00d4c579324d9519344571ffbca249acd86e3
     @Override
     public String getMessage() {
         return "¡La aeronave solicitada no existe!";

@@ -63,7 +63,7 @@ public class ClasesControllerTest {
     @DisplayName("Test ClasesController Camino Feliz -> registrar")
     void registrar() {
         // Arrange
-        DtoClase claseSut = new DtoClase(); // Replace with your actual DtoClase instance
+        DtoClase claseSut = new DtoClase();
         ResponseEntity<?> expected = new ResponseEntity<>(claseSut, HttpStatus.OK);
 
         when(clasesService.agregarNueva(claseSut)).thenReturn(claseSut);
@@ -80,7 +80,7 @@ public class ClasesControllerTest {
     void eliminar() {
         // Arrange
         Integer idSut = 1;
-        DtoClase claseSut = new DtoClase(); // Replace with your actual DtoClase instance
+        DtoClase claseSut = new DtoClase();
         ResponseEntity<?> expected = new ResponseEntity<>(claseSut, HttpStatus.OK);
 
         when(clasesService.eliminar(idSut)).thenReturn(claseSut);

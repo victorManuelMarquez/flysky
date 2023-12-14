@@ -8,6 +8,10 @@
 
 [SQL - Solo estructura](https://drive.google.com/file/d/1QUOA16Ncgh9kE2ZAWBffzv_hfYzcmMZO/view?usp=sharing)
 
+### Datos
+
+[SQL - Datos para poblar](https://drive.google.com/file/d/1mWrX0X6XiTvRhQspGshjDzszjsFJuQ0q/view?usp=sharing)
+
 <!--### *Se reforzará con vistas para agilizar ciertos requerimientos.-->
 
 <!-- ![flysky_database](https://github.com/victorManuelMarquez/flysky/assets/107000454/07b98fad-5993-4a4a-8e23-9d66361153a2) -->

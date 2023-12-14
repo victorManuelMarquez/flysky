@@ -82,7 +82,7 @@ public class PagosControllerTest {
     void eliminar() {
         // Arrange
         Integer idSut = 1;
-        DtoPago pagoSut = new DtoPago(); // Replace with your real instance of Pago
+        DtoPago pagoSut = new DtoPago();
         ResponseEntity<?> expected = new ResponseEntity<>(pagoSut, HttpStatus.OK);
 
         when(pagosService.eliminar(idSut)).thenReturn(pagoSut);

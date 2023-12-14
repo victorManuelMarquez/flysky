@@ -65,7 +65,7 @@ public class BoletosControllerTest {
     @DisplayName("Test BoletosController Camino Feliz -> registrar")
     void registrar() {
         // Arrange
-        DtoBoleto boletoSut = new DtoBoleto(); // Replace with your real instance of Boleto
+        DtoBoleto boletoSut = new DtoBoleto();
         ResponseEntity<?> expected = new ResponseEntity<>(boletoSut, HttpStatus.OK);
 
         when(boletosService.agregarBoleto(boletoSut)).thenReturn(boletoSut);
@@ -82,7 +82,7 @@ public class BoletosControllerTest {
     void eliminar() {
         // Arrange
         Integer idSut = 1;
-        DtoBoleto boletoSut = new DtoBoleto(); // Replace with your real instance of Boleto
+        DtoBoleto boletoSut = new DtoBoleto();
         ResponseEntity<?> expected = new ResponseEntity<>(boletoSut, HttpStatus.OK);
 
         when(boletosService.eliminar(idSut)).thenReturn(boletoSut);
