@@ -20,7 +20,7 @@ public class TestPagosExceptionController {
     PagosExceptionController pagosExceptionController;
     @Test
     @DisplayName("Test Camino Feliz PagosException -> pagoNoEncontrado")
-    void boletoNoEncontrado(){
+    void pagoNoEncontrado(){
         PagoNoEncontrado pagoNoEncontradoSut = new PagoNoEncontrado();
         ErrorDto body = new ErrorDto(404, pagoNoEncontradoSut.getMessage());
         ResponseEntity<?> expected = new ResponseEntity<>(body, HttpStatus.NOT_FOUND);

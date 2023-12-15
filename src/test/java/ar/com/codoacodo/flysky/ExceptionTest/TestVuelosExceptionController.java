@@ -20,7 +20,7 @@ public class TestVuelosExceptionController {
     VuelosExceptionController vuelosExceptionController;
     @Test
     @DisplayName("Test Camino Feliz VuelosException -> vueloNoEncontrado")
-    void boletoNoEncontrado(){
+    void vueloNoEncontrado(){
         VueloNoEncontrado vueloNoEncontradoSut = new VueloNoEncontrado();
         ErrorDto body = new ErrorDto(404, vueloNoEncontradoSut.getMessage());
         ResponseEntity<?> expected = new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
