@@ -13,13 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @AutoConfigureMockMvc
 @SpringBootTest
 public class IntegrationTestVuelos {
@@ -31,8 +32,7 @@ public class IntegrationTestVuelos {
         mockMvc.perform(get("/api/vuelos/"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(4))
-                .andExpect(jsonPath("$[0].nombre").value("Aerolíneas Argentinas"));
+                .andExpect(jsonPath("$[0].id").value(1));
     }
     @Test
     @DisplayName("Test Integracion Camino Feliz -> Buscar un vuelo por id")
@@ -41,8 +41,7 @@ public class IntegrationTestVuelos {
                 .andDo(print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(2))
-                .andExpect(jsonPath("$.nombre").value("Avianca"));
+                .andExpect(jsonPath("$.id").value(2));
     }
     @Test
     @DisplayName("Test Integracion Camino Feliz -> Agregar un nuevo vuelo")

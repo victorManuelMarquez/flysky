@@ -13,13 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @AutoConfigureMockMvc
 @SpringBootTest
 public class IntegrationTestClases {
@@ -66,7 +67,7 @@ public class IntegrationTestClases {
     @Test
     @DisplayName("Test Integracion Camino Feliz -> Eliminar una clase por id")
     void clasesEliminarOkTest() throws Exception {
-        DtoClase dtoClase = FactoryClaseTest.nuevaClase();
+        DtoClase dtoClase = FactoryClaseTest.eliminarClase();
 
         ObjectWriter writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
