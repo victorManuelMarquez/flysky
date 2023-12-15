@@ -18,8 +18,8 @@ public class TestPasajerosExceptionController {
     @Autowired
     PasajerosExceptionController pasajerosExceptionController;
     @Test
-    @DisplayName("Test Camino Feliz ClasesException -> claseNoEncontrada")
-    void boletoNoEncontrado(){
+    @DisplayName("Test Camino Feliz PasajeroException -> pasajeroNoEncontrado")
+    void pasajeroNoEncontrado(){
         PasajeroNoEncontrado pasajeroNoEncontradoSut = new PasajeroNoEncontrado();
         ErrorDto body = new ErrorDto(404, pasajeroNoEncontradoSut.getMessage());
         ResponseEntity<?> expected = new ResponseEntity<>(body, HttpStatus.NOT_FOUND);

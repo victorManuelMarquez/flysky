@@ -19,7 +19,7 @@ public class TestClasesExceptionController {
     ClasesExceptionController clasesExceptionController;
     @Test
     @DisplayName("Test Camino Feliz ClasesException -> claseNoEncontrada")
-    void boletoNoEncontrado(){
+    void claseNoEncontrado(){
         ClaseNoEncontrada claseNoEncontradaoSut = new ClaseNoEncontrada();
         ErrorDto body = new ErrorDto(404, claseNoEncontradaoSut.getMessage());
         ResponseEntity<?> expected = new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
