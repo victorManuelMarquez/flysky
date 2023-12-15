@@ -26,7 +26,7 @@ public class IntegrationTestAeropuertos {
     @Autowired
     MockMvc mockMvc;
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aeropuertos/ -> todosLosaeropuertos")
+    @DisplayName("Test Integracion Camino Feliz -> Buscar todos los aeropuertos")
     void aeropuertosTodosOkTest() throws Exception {
         mockMvc.perform(get("/api/aeropuertos/"))
                 .andDo(print())
@@ -35,7 +35,7 @@ public class IntegrationTestAeropuertos {
                 .andExpect(jsonPath("$[0].nombre").value("Aeropuerto Internacional Comodoro Arturo Merino Benítez"));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aeropuertos/{id} -> buscarPorId")
+    @DisplayName("Test Integracion Camino Feliz -> Buscar aeropuerto por id")
     void aeropuertosSeleccionarOkTest() throws Exception {
         mockMvc.perform(get("/api/aeropuertos/{id}", 8))
                 .andDo(print())
@@ -45,7 +45,7 @@ public class IntegrationTestAeropuertos {
                 .andExpect(jsonPath("$.nombre").value("Aeropuerto Internacional Comodoro Arturo Merino Benítez"));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aeropuertos/registrar -> agregarNueva")
+    @DisplayName("Test Integracion Camino Feliz ->  Agregar un nuevo aeropuerto")
     void aeropuertosAgregarNuevaOkTest() throws Exception {
         DtoAeropuerto dtoAeropuerto = FactoryAeropuertosTest.nuevoAeropuerto();
 
@@ -61,12 +61,12 @@ public class IntegrationTestAeropuertos {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.nombre").value("Aeropuerto Prueba "+FactoryAeropuertosTest.id));
+                .andExpect(jsonPath("$.nombre").value("Aeropuerto Prueba"));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aeropuertos/{id}/eliminar -> eliminar")
+    @DisplayName("Test Integracion Camino Feliz -> Eliminar aeropuerto por id")
     void aeropuertosEliminarOkTest() throws Exception {
-        DtoAeropuerto dtoAeropuerto = FactoryAeropuertosTest.nuevoAeropuerto();
+        DtoAeropuerto dtoAeropuerto = FactoryAeropuertosTest.eliminarAeropuerto();
 
         ObjectWriter writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
@@ -78,8 +78,7 @@ public class IntegrationTestAeropuertos {
                 .andDo(print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(FactoryAeropuertosTest.id))
-                .andExpect(jsonPath("$.nombre").value("Aeropuerto Prueba "+FactoryAeropuertosTest.id));
+                .andExpect(jsonPath("$.id").value(10))
+                .andExpect(jsonPath("$.nombre").value("Aeropuerto Internacional Tocumen"));
     }
-
 }
