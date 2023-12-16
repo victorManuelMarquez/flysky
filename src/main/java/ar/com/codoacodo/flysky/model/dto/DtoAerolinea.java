@@ -16,7 +16,7 @@ public class DtoAerolinea {
     @PositiveOrZero
     private Integer id;
 
-    @NotBlank
+    @NotBlank(message = "El campo nombre es requerido")
     @Size(max = 100)
     private String nombre;
 

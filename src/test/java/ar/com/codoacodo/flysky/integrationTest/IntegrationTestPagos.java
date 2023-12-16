@@ -1,7 +1,9 @@
 package ar.com.codoacodo.flysky.integrationTest;
 
 import ar.com.codoacodo.flysky.model.dto.DtoAerolinea;
+import ar.com.codoacodo.flysky.model.dto.DtoPago;
 import ar.com.codoacodo.flysky.util.FactoryAerolineasTest;
+import ar.com.codoacodo.flysky.util.FactoryPagosTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -11,74 +13,71 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @AutoConfigureMockMvc
 @SpringBootTest
 public class IntegrationTestPagos {
     @Autowired
     MockMvc mockMvc;
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/pagos/ -> todasLasAerolineas")
-    void aerolineasTodosOkTest() throws Exception {
-        mockMvc.perform(get("/api/aerolineas/"))
+    @DisplayName("Test Integracion Camino Feliz -> Buscar todas los Pagos")
+    void pagosTodosOkTest() throws Exception {
+        mockMvc.perform(get("/api/pagos/"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(4))
-                .andExpect(jsonPath("$[0].nombre").value("Aerolíneas Argentinas"));
+                .andExpect(jsonPath("$[0].id").value(1));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aerolineas/{id} -> buscarPorId")
-    void aerolineasSeleccionarOkTest() throws Exception {
-        mockMvc.perform(get("/api/aerolineas/{id}", 2))
+    @DisplayName("Test Integracion Camino Feliz -> buscar un pago por id")
+    void pagosSeleccionarOkTest() throws Exception {
+        mockMvc.perform(get("/api/pagos/{id}", 2))
                 .andDo(print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(2))
-                .andExpect(jsonPath("$.nombre").value("Avianca"));
+                .andExpect(jsonPath("$.id").value(2));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aerolineas/registrar -> agregarNueva")
-    void aerolineasAgregarNuevaOkTest() throws Exception {
-        DtoAerolinea dtoAerolinea = FactoryAerolineasTest.nuevaAerolinea();
+    @DisplayName("Test Integracion Camino Feliz -> Agregar un nuevo pago")
+    void pagosAgregarNuevaOkTest() throws Exception {
+        DtoPago dtoPago = FactoryPagosTest.nuevoPago();
 
         ObjectWriter writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
                 .writer();
 
-        String payload = writer.writeValueAsString(dtoAerolinea);
+        String payload = writer.writeValueAsString(dtoPago);
 
-        mockMvc.perform(post("/api/aerolineas/registrar")
+        mockMvc.perform(post("/api/pagos/registrar")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(payload))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.nombre").value("Aerolineas Nueva 155"));
+                .andExpect(jsonPath("$.id").value(11));
     }
-    /*@Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aerolineas/{id}/eliminar -> eliminar")
-    void aerolineasEliminarOkTest() throws Exception {
-        DtoAerolinea dtoAerolinea = FactoryAerolineasTest.nuevaAerolinea();
+    @Test
+    @DisplayName("Test Integracion Camino Feliz -> Eliminar un pago por id")
+    void pagosEliminarOkTest() throws Exception {
+        DtoPago dtoPago = FactoryPagosTest.eliminarPago();
 
         ObjectWriter writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
                 .writer();
 
-        String payload = writer.writeValueAsString(dtoAerolinea);
+        String payload = writer.writeValueAsString(dtoPago);
 
-        mockMvc.perform(delete("/api/aerolineas/{id}/eliminar", 13))
+        mockMvc.perform(delete("/api/pagos/{id}/eliminar", 13))
                 .andDo(print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(13))
-                .andExpect(jsonPath("$.nombre").value("Aerolineas Nueva 55"));
-    }*/
+                .andExpect(jsonPath("$.id").value(8));
+    }
 
 }

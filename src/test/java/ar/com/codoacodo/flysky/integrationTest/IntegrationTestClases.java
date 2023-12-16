@@ -13,20 +13,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @AutoConfigureMockMvc
 @SpringBootTest
 public class IntegrationTestClases {
     @Autowired
     MockMvc mockMvc;
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/clases/ -> todasLasclases")
+    @DisplayName("Test Integracion Camino Feliz -> Buscar todas las clases")
     void clasesTodosOkTest() throws Exception {
         mockMvc.perform(get("/api/clases/"))
                 .andDo(print())
@@ -35,7 +36,7 @@ public class IntegrationTestClases {
                 .andExpect(jsonPath("$[0].nombre").value("Clase Económica"));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/clases/{id} -> buscarPorId")
+    @DisplayName("Test Integracion Camino Feliz -> buscar una clase por id")
     void clasesSeleccionarOkTest() throws Exception {
         mockMvc.perform(get("/api/clases/{id}", 2))
                 .andDo(print())
@@ -45,7 +46,7 @@ public class IntegrationTestClases {
                 .andExpect(jsonPath("$.nombre").value("Ejecutiva"));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/clases/registrar -> agregarNueva")
+    @DisplayName("Test Integracion Camino Feliz -> Agregar una nueva clase")
     void clasesAgregarNuevaOkTest() throws Exception {
         DtoClase dtoClase = FactoryClaseTest.nuevaClase();
 
@@ -61,12 +62,12 @@ public class IntegrationTestClases {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.nombre").value("Prueba "+FactoryClaseTest.id));
+                .andExpect(jsonPath("$.nombre").value("Prueba 11"));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/clases/{id}/eliminar -> eliminar")
+    @DisplayName("Test Integracion Camino Feliz -> Eliminar una clase por id")
     void clasesEliminarOkTest() throws Exception {
-        DtoClase dtoClase = FactoryClaseTest.nuevaClase();
+        DtoClase dtoClase = FactoryClaseTest.eliminarClase();
 
         ObjectWriter writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
@@ -78,8 +79,8 @@ public class IntegrationTestClases {
                 .andDo(print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(FactoryClaseTest.id))
-                .andExpect(jsonPath("$.nombre").value("Prueba "+FactoryClaseTest.id));
+                .andExpect(jsonPath("$.id").value(10))
+                .andExpect(jsonPath("$.nombre").value("Premium First Class"));
     }
 
 }

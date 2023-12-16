@@ -11,19 +11,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @AutoConfigureMockMvc
 @SpringBootTest
 public class IntegrationTestAerolineas {
     @Autowired
     MockMvc mockMvc;
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aerolineas/ -> todasLasAerolineas")
+    @DisplayName("Test Integracion Camino Feliz -> Buscar todas las Aerolineas")
     void aerolineasTodosOkTest() throws Exception {
         mockMvc.perform(get("/api/aerolineas/"))
                 .andDo(print())
@@ -32,7 +33,7 @@ public class IntegrationTestAerolineas {
                 .andExpect(jsonPath("$[0].nombre").value("Aerolíneas Argentinas"));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aerolineas/{id} -> buscarPorId")
+    @DisplayName("Test Integracion Camino Feliz -> Buscar una aerolinea por id")
     void aerolineasSeleccionarOkTest() throws Exception {
         mockMvc.perform(get("/api/aerolineas/{id}", 2))
                 .andDo(print())
@@ -42,7 +43,7 @@ public class IntegrationTestAerolineas {
                 .andExpect(jsonPath("$.nombre").value("Avianca"));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aerolineas/registrar -> agregarNueva")
+    @DisplayName("Test Integracion Camino Feliz -> Agregar una nueva aerolinea")
     void aerolineasAgregarNuevaOkTest() throws Exception {
         DtoAerolinea dtoAerolinea = FactoryAerolineasTest.nuevaAerolinea();
 
@@ -58,12 +59,12 @@ public class IntegrationTestAerolineas {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.nombre").value("Aerolineas Nueva "+FactoryAerolineasTest.id));
+                .andExpect(jsonPath("$.nombre").value("Aerolinea Nueva 15"));
     }
     @Test
-    @DisplayName("Test Integracion Camino Feliz -> /api/aerolineas/{id}/eliminar -> eliminar")
+    @DisplayName("Test Integracion Camino Feliz -> Eliminar una aerolinea por id")
     void aerolineasEliminarOkTest() throws Exception {
-        DtoAerolinea dtoAerolinea = FactoryAerolineasTest.nuevaAerolinea();
+        DtoAerolinea dtoAerolinea = FactoryAerolineasTest.eliminarAerolinea();
 
         ObjectWriter writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
@@ -75,8 +76,7 @@ public class IntegrationTestAerolineas {
                 .andDo(print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(FactoryAerolineasTest.id))
-                .andExpect(jsonPath("$.nombre").value("Aerolineas Nueva "+FactoryAerolineasTest.id));
+                .andExpect(jsonPath("$.id").value(10))
+                .andExpect(jsonPath("$.nombre").value("Copa Airlines"));
     }
-
 }

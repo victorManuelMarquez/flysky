@@ -4,23 +4,11 @@ import ar.com.codoacodo.flysky.model.dto.DtoAeropuerto;
 import ar.com.codoacodo.flysky.model.dto.DtoAvion;
 
 public class FactoryAvionesTest {
-
-        public static int id = 57;
         public static DtoAvion nuevoAvion(){
-            id++;
-            return new DtoAvion(id, "prueba "+id);
+            return new DtoAvion(11, "prueba 11");
         }
         public static DtoAvion eliminarAvion(){
-            --id;
-            return new DtoAvion(id, "Prueba "+id);
+            return new DtoAvion(10, "Boeing 767");
         }
 
 }
-/*
- @PositiveOrZero
-    private Integer id;
-
-    @NotBlank
-    @Size(max = 100)
-    private String marcaModelo;
-*/

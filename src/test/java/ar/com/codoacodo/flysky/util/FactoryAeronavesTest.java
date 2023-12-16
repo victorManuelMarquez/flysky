@@ -1,26 +1,21 @@
 package ar.com.codoacodo.flysky.util;
 
-import ar.com.codoacodo.flysky.model.dto.DtoAerolinea;
 import ar.com.codoacodo.flysky.model.dto.DtoAeronave;
 import ar.com.codoacodo.flysky.model.entity.Avion;
 import ar.com.codoacodo.flysky.model.entity.Clase;
 
 public class FactoryAeronavesTest {
-    public static int id = 57;
     public static DtoAeronave nuevaAeronave(){
-        id++;
-        return new DtoAeronave(id,
-                new Avion(2, "Airbus A320"+id),
-                new Clase(6, "Clase Ejecutiva "+id),
-                300);
+        return new DtoAeronave(11,
+                new Avion(2, "Airbus A320"),
+                new Clase(6, "Clase Ejecutiva"),
+                1111);
     }
 
     public static DtoAeronave eliminarAeronave(){
-        --id;
-        return new DtoAeronave(id,
-                new Avion(2, "Airbus A320"+id),
-                new Clase(6, "Clase Ejecutiva "+id),
-                300);
+        return new DtoAeronave(9,
+                new Avion(9, "Embraer E195"),
+                new Clase(9, "Premium Business"),
+                120);
     }
 }
-

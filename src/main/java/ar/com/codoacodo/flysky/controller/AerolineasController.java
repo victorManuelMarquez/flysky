@@ -2,6 +2,7 @@ package ar.com.codoacodo.flysky.controller;
 
 import ar.com.codoacodo.flysky.model.dto.DtoAerolinea;
 import ar.com.codoacodo.flysky.service.AerolineasServiceImpl;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +29,7 @@ public class AerolineasController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<?> registrar(@RequestBody DtoAerolinea aerolinea) {
+    public ResponseEntity<?> registrar(@RequestBody @Valid DtoAerolinea aerolinea) {
         return new ResponseEntity<>(service.agregarNueva(aerolinea), HttpStatus.OK);
     }
 
