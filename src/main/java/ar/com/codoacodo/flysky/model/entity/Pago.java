@@ -3,12 +3,12 @@ package ar.com.codoacodo.flysky.model.entity;
 import ar.com.codoacodo.flysky.model.dto.DtoBoleto;
 import ar.com.codoacodo.flysky.model.dto.DtoPasajero;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -36,4 +36,8 @@ public class Pago {
     @ManyToOne
     @JoinColumn(name = "metodo_pago_id")
     private MetodoPago metodoPago;
+
+    @ManyToOne
+    @JoinColumn(name = "id_informe")  //
+    private Informe informe;
 }

@@ -29,4 +29,6 @@ public class DtoPago {
     private LocalDate fecha;
 
     private DtoMetodoPago metodoPago;
+
+    private DtoInforme informe;
 }
