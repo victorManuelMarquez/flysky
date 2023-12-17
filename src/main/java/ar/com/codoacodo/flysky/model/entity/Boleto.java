@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -29,6 +30,6 @@ public class Boleto {
     private Float precio;
 
     @Column(name = "reserva", columnDefinition = "DATETIME")
-    private LocalDate reserva;
+    private Date reserva;
 
 }

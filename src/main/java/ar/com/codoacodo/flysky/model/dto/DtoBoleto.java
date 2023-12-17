@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -23,6 +24,6 @@ public class DtoBoleto {
     @Positive
     private Float precio;
 
-    private LocalDate reserva;
+    private Date reserva;
 
 }

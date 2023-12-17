@@ -64,7 +64,7 @@ public class DtoTest {
 
     @Test
     void testDtoBoletoValidation() {
-        DtoBoleto dtoBoleto = new DtoBoleto(1, new DtoVuelo(), new DtoAeronave(), 300.0f, LocalDate.now());
+        DtoBoleto dtoBoleto = new DtoBoleto(1, new DtoVuelo(), new DtoAeronave(), 300.0f, new Date());
 
         Set<ConstraintViolation<DtoBoleto>> violations = validator.validate(dtoBoleto);
         assertTrue(violations.isEmpty());
