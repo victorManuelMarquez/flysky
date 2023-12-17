@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -28,7 +29,8 @@ public class Pasajero {
     private String domicilio;
 
     @Temporal(TemporalType.DATE)
-    private Date nacimiento;
+    @Column
+    private LocalDate nacimiento;
 
     @Column
     private String email;

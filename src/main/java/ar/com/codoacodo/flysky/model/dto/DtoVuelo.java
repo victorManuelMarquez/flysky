@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -25,8 +26,8 @@ public class DtoVuelo {
 
     private Aeropuerto destino;
 
-    private Date salida;
+    private LocalDate salida;
 
-    private Date llegada;
+    private LocalDate llegada;
 
 }

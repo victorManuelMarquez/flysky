@@ -1,5 +1,6 @@
 package ar.com.codoacodo.flysky.model.dto;
 
+import ar.com.codoacodo.flysky.model.entity.MetodoPago;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -27,4 +28,5 @@ public class DtoPago {
     @PastOrPresent
     private LocalDate fecha;
 
+    private DtoMetodoPago metodoPago;
 }

@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -33,7 +34,7 @@ public class DtoPasajero {
     private String domicilio;
 
     @Past
-    private Date nacimiento;
+    private LocalDate nacimiento;
 
     @Size(max = 255)
     private String email;

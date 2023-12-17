@@ -42,7 +42,7 @@ public class PagosServiceImpl implements PagosService {
     @Override
     public DtoPago agregarNuevo(DtoPago nuevo) {
         Pago pago = repository.save(getMapper().convertValue(nuevo, Pago.class));
-        return getMapper().convertValue(pago.getId(), DtoPago.class);
+        return getMapper().convertValue(pago, DtoPago.class);  // Corregir aquí
     }
 
     @Override
@@ -53,5 +53,4 @@ public class PagosServiceImpl implements PagosService {
             return getMapper().convertValue(pagos.get(), DtoPago.class);
         } else throw new PagoNoEncontrado();
     }
-
 }
