@@ -8,12 +8,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.Set;
 
+/**
+ * Clase para transferir datos, en este caso los de la clase {@link ar.com.codoacodo.flysky.model.entity.Vuelo Vuelo}
+ *
+ * @author victor
+ * @version 1.0
+ * @since 1.0
+ * @see ar.com.codoacodo.flysky.model.entity.Vuelo Entidad Vuelo
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@SuppressWarnings("SpellCheckingInspection")
 public class DtoVuelo {
 
     @PositiveOrZero

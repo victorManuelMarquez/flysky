@@ -7,6 +7,13 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+/**
+ * Clase que permite modelar la tabla {@code vuelos}, la cual posee 3 cláves foráneas.
+ *
+ * @author victor, Fede
+ * @version 1.0
+ * @since 1.0
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

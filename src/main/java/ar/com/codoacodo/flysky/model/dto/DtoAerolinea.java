@@ -7,6 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Clase para transferir datos, en este caso de la clase {@link ar.com.codoacodo.flysky.model.entity.Aerolinea Aerolinea}
+ *
+ * @author victor, Fede, Sotelo
+ * @version 1.0
+ * @since 1.0
+ * @see ar.com.codoacodo.flysky.model.entity.Aerolinea Entidad Aerolínea
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
