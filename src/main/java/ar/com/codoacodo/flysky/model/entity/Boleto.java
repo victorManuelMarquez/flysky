@@ -9,13 +9,6 @@ import java.time.LocalDate;
 
 
 @Data
-/**
- * Clase que permite modelar los datos de la tabla {@code boletos}
- *
- * @author victor
- * @version 1.0
- * @since 1.0
- */
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "boletos")
