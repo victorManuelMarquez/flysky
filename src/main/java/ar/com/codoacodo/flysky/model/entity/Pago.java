@@ -7,6 +7,14 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+
+/**
+ * Clase que permite modelar los datos de la tabla {@code pagos}
+ *
+ * @author victor
+ * @version 1.0
+ * @since 1.0
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
