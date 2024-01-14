@@ -7,6 +7,13 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * Clase que permite modelar los datos de la tabla {@code pasajeros}
+ *
+ * @author victor
+ * @version 1.0
+ * @since 1.0
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
